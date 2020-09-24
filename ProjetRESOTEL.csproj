@@ -118,6 +118,9 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Services\UserService.cs" />
+    <Compile Include="ViewModels\NewReservationModel.cs" />
+    <Compile Include="ViewModels\RelayCommand.cs" />
+    <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="Views\ucListReservation.xaml.cs">
       <DependentUpon>ucListReservation.xaml</DependentUpon>
     </Compile>
