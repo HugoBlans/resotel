@@ -117,7 +117,9 @@
       <DependentUpon>202009241026403_UpDateClient.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Services\ReservationService.cs" />
     <Compile Include="Services\UserService.cs" />
+    <Compile Include="ViewModels\ListReservationModel.cs" />
     <Compile Include="ViewModels\NewReservationModel.cs" />
     <Compile Include="ViewModels\RelayCommand.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />

@@ -24,6 +24,7 @@ namespace ProjetRESOTEL.Views
         public ucNewReservation()
         {
             InitializeComponent();
+            DataContext = new ViewModels.NewReservationModel();
         }
 
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

@@ -12,8 +12,7 @@ namespace ProjetRESOTEL.ViewModels
     public class NewReservationModel
     {
         #region Commands
-
-        private RelayCommand nouvelleChambre;
+        /*private RelayCommand nouvelleChambre;
         public StackPanel stack;
 
         public ICommand NouvelleChambre
@@ -38,8 +37,8 @@ namespace ProjetRESOTEL.ViewModels
             cmb.Items.Add("Chambre 6 personnes");
             cmb.Items.Add("Chambre Double + Bébé");
 
-            stack.Children.Add(cmb); // Ajout du combo box dans le stackpanel
-        }
+            panelComboBox.Children.Add(cmb); // Ajout du combo box dans le stackpanel
+        }*/
         #endregion
     }
 }
