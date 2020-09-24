@@ -8,6 +8,18 @@ namespace ProjetRESOTEL.Migrations
         public override void Up()
         {
             CreateTable(
+                "dbo.Clients",
+                c => new
+                    {
+                        IdentifiantCli = c.Int(nullable: false, identity: true),
+                        Nom = c.String(nullable: false, maxLength: 80, storeType: "nvarchar"),
+                        Prenom = c.String(nullable: false, maxLength: 80, storeType: "nvarchar"),
+                        Email = c.String(nullable: false, maxLength: 80, storeType: "nvarchar"),
+                        Telephone = c.String(nullable: false, maxLength: 80, storeType: "nvarchar"),
+                    })
+                .PrimaryKey(t => t.IdentifiantCli);
+            
+            CreateTable(
                 "dbo.Users",
                 c => new
                     {
@@ -22,6 +34,7 @@ namespace ProjetRESOTEL.Migrations
         public override void Down()
         {
             DropTable("dbo.Users");
+            DropTable("dbo.Clients");
         }
     }
 }
