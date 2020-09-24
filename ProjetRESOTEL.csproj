@@ -100,7 +100,13 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Entities\AppContext.cs" />
+    <Compile Include="Entities\Chambre.cs" />
+    <Compile Include="Entities\ChambreReservee.cs" />
     <Compile Include="Entities\Client.cs" />
+    <Compile Include="Entities\DemandeOption.cs" />
+    <Compile Include="Entities\Option.cs" />
+    <Compile Include="Entities\Prix.cs" />
+    <Compile Include="Entities\Repas.cs" />
     <Compile Include="Entities\Reservation.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Entities\UserContext.cs" />
@@ -115,6 +121,14 @@
     <Compile Include="Migrations\202009241026403_UpDateClient.cs" />
     <Compile Include="Migrations\202009241026403_UpDateClient.Designer.cs">
       <DependentUpon>202009241026403_UpDateClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009241204517_chambrePrix.cs" />
+    <Compile Include="Migrations\202009241204517_chambrePrix.Designer.cs">
+      <DependentUpon>202009241204517_chambrePrix.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009241252041_alldb.cs" />
+    <Compile Include="Migrations\202009241252041_alldb.Designer.cs">
+      <DependentUpon>202009241252041_alldb.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Services\UserService.cs" />
@@ -170,6 +184,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202009241026403_UpDateClient.resx">
       <DependentUpon>202009241026403_UpDateClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009241204517_chambrePrix.resx">
+      <DependentUpon>202009241204517_chambrePrix.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009241252041_alldb.resx">
+      <DependentUpon>202009241252041_alldb.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

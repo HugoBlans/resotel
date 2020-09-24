@@ -23,9 +23,7 @@ namespace ProjetRESOTEL.Entities
         public int NbNuits { get; set; }
 
         [ForeignKey("Client")]
-        public int IdentifiantCli
-        {
-            get; set; }
+        public int IdentifiantCli { get; set; }
         public Client Client { get; set; }
 
     }
