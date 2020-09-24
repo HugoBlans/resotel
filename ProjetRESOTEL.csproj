@@ -99,11 +99,22 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Entities\AppContext.cs" />
+    <Compile Include="Entities\Client.cs" />
+    <Compile Include="Entities\Reservation.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Entities\UserContext.cs" />
     <Compile Include="Migrations\202009240656062_InitialCreate.cs" />
     <Compile Include="Migrations\202009240656062_InitialCreate.Designer.cs">
       <DependentUpon>202009240656062_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009240958258_FKrescli.cs" />
+    <Compile Include="Migrations\202009240958258_FKrescli.Designer.cs">
+      <DependentUpon>202009240958258_FKrescli.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009241026403_UpDateClient.cs" />
+    <Compile Include="Migrations\202009241026403_UpDateClient.Designer.cs">
+      <DependentUpon>202009241026403_UpDateClient.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Services\UserService.cs" />
@@ -153,6 +164,12 @@
     </Compile>
     <EmbeddedResource Include="Migrations\202009240656062_InitialCreate.resx">
       <DependentUpon>202009240656062_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009240958258_FKrescli.resx">
+      <DependentUpon>202009240958258_FKrescli.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009241026403_UpDateClient.resx">
+      <DependentUpon>202009241026403_UpDateClient.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
