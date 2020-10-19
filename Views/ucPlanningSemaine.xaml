@@ -13,42 +13,52 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/><!--monday-->
-            <ColumnDefinition Width="*"/><!--tuesday-->
-            <ColumnDefinition Width="*"/><!--wenesday-->
-            <ColumnDefinition Width="*"/><!--thursday-->
-            <ColumnDefinition Width="*"/><!--friday-->
-            <ColumnDefinition Width="*"/><!--saturday-->
-            <ColumnDefinition Width="*"/><!--sunday-->
+            <ColumnDefinition Width="*"/>
+            <!--monday-->
+            <ColumnDefinition Width="*"/>
+            <!--tuesday-->
+            <ColumnDefinition Width="*"/>
+            <!--wenesday-->
+            <ColumnDefinition Width="*"/>
+            <!--thursday-->
+            <ColumnDefinition Width="*"/>
+            <!--friday-->
+            <ColumnDefinition Width="*"/>
+            <!--saturday-->
+            <ColumnDefinition Width="*"/>
+            <!--sunday-->
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="auto"/> <!--title-->
-            <RowDefinition Height="*"/> <!--morning-->
-            <RowDefinition Height="*"/> <!--afternoon-->
+            <RowDefinition Height="auto"/>
+            <!--title-->
+            <RowDefinition Height="*"/>
+            <!--morning-->
+            <RowDefinition Height="*"/>
+            <!--afternoon-->
         </Grid.RowDefinitions>
         <!--week list-->
-            <TextBlock Style="{DynamicResource StyleLabel}" Grid.Row="0" Grid.Column="0" Text="Lundi" />
-            <TextBlock Style="{DynamicResource StyleLabel}" Grid.Row="0" Grid.Column="1" Text="Mardi" />
-            <TextBlock Style="{DynamicResource StyleLabel}" Grid.Row="0" Grid.Column="2" Text="Mercredi" />
-            <TextBlock Style="{DynamicResource StyleLabel}" Grid.Row="0" Grid.Column="3" Text="Jeudi" />
-            <TextBlock Style="{DynamicResource StyleLabel}" Grid.Row="0" Grid.Column="4" Text="Vendredi" />
-            <TextBlock Style="{DynamicResource StyleLabel}" Grid.Row="0" Grid.Column="5" Text="Samedi" />
-            <TextBlock Style="{DynamicResource StyleLabel}" Grid.Row="0" Grid.Column="6" Text="Dimanche" />
+        <TextBlock Style="{DynamicResource StyleLabel}" Grid.Row="0" Grid.Column="0" Text="Lundi"/>
+        <TextBlock Style="{DynamicResource StyleLabel}" Grid.Row="0" Grid.Column="1" Text="Mardi" />
+        <TextBlock Style="{DynamicResource StyleLabel}" Grid.Row="0" Grid.Column="2" Text="Mercredi" />
+        <TextBlock Style="{DynamicResource StyleLabel}" Grid.Row="0" Grid.Column="3" Text="Jeudi" />
+        <TextBlock Style="{DynamicResource StyleLabel}" Grid.Row="0" Grid.Column="4" Text="Vendredi" />
+        <TextBlock Style="{DynamicResource StyleLabel}" Grid.Row="0" Grid.Column="5" Text="Samedi" />
+        <TextBlock Style="{DynamicResource StyleLabel}" Grid.Row="0" Grid.Column="6" Text="Dimanche" />
         <!--to do list-->
-            <!--morning-->
-            <TextBlock Style="{DynamicResource StyleLabel}" VerticalAlignment="top" Grid.Row="1" Grid.Column="0" Text="Rien" />
-            <TextBlock Style="{DynamicResource StyleLabel}" VerticalAlignment="top" Grid.Row="1" Grid.Column="1" Text="Rien" />
-            <TextBlock Style="{DynamicResource StyleLabel}" VerticalAlignment="top" Grid.Row="1" Grid.Column="2" Text="Rien" />
-            <TextBlock Style="{DynamicResource StyleLabel}" VerticalAlignment="top" Grid.Row="1" Grid.Column="3" Text="Rien" />
-            <TextBlock Style="{DynamicResource StyleLabel}" VerticalAlignment="top" Grid.Row="1" Grid.Column="4" Text="Rien" />
-            <TextBlock Style="{DynamicResource StyleLabel}" VerticalAlignment="top" Grid.Row="1" Grid.Column="5" Text="Rien" />
-            <TextBlock Style="{DynamicResource StyleLabel}" VerticalAlignment="top" Grid.Row="1" Grid.Column="6" Text="Rien" />
-            <TextBlock Style="{DynamicResource StyleLabel}" VerticalAlignment="top" Grid.Row="2" Grid.Column="0" Text="Rien" />
-            <TextBlock Style="{DynamicResource StyleLabel}" VerticalAlignment="top" Grid.Row="2" Grid.Column="1" Text="Rien" />
-            <TextBlock Style="{DynamicResource StyleLabel}" VerticalAlignment="top" Grid.Row="2" Grid.Column="2" Text="Rien" />
-            <TextBlock Style="{DynamicResource StyleLabel}" VerticalAlignment="top" Grid.Row="2" Grid.Column="3" Text="Rien" />
-            <TextBlock Style="{DynamicResource StyleLabel}" VerticalAlignment="top" Grid.Row="2" Grid.Column="4" Text="Rien" />
-            <TextBlock Style="{DynamicResource StyleLabel}" VerticalAlignment="top" Grid.Row="2" Grid.Column="5" Text="Rien" />
-            <TextBlock Style="{DynamicResource StyleLabel}" VerticalAlignment="top" Grid.Row="2" Grid.Column="6" Text="Rien" />
+        <!--morning-->
+        <TextBlock Style="{DynamicResource StyleLabel}" VerticalAlignment="top" Grid.Row="1" Grid.Column="0" Text="Rien" />
+        <TextBlock Style="{DynamicResource StyleLabel}" VerticalAlignment="top" Grid.Row="1" Grid.Column="1" Text="Rien" />
+        <TextBlock Style="{DynamicResource StyleLabel}" VerticalAlignment="top" Grid.Row="1" Grid.Column="2" Text="Rien" />
+        <TextBlock Style="{DynamicResource StyleLabel}" VerticalAlignment="top" Grid.Row="1" Grid.Column="3" Text="Rien" />
+        <TextBlock Style="{DynamicResource StyleLabel}" VerticalAlignment="top" Grid.Row="1" Grid.Column="4" Text="Rien" />
+        <TextBlock Style="{DynamicResource StyleLabel}" VerticalAlignment="top" Grid.Row="1" Grid.Column="5" Text="Rien" />
+        <TextBlock Style="{DynamicResource StyleLabel}" VerticalAlignment="top" Grid.Row="1" Grid.Column="6" Text="Rien" />
+        <TextBlock Style="{DynamicResource StyleLabel}" VerticalAlignment="top" Grid.Row="2" Grid.Column="0" Text="Rien" />
+        <TextBlock Style="{DynamicResource StyleLabel}" VerticalAlignment="top" Grid.Row="2" Grid.Column="1" Text="Rien" />
+        <TextBlock Style="{DynamicResource StyleLabel}" VerticalAlignment="top" Grid.Row="2" Grid.Column="2" Text="Rien" />
+        <TextBlock Style="{DynamicResource StyleLabel}" VerticalAlignment="top" Grid.Row="2" Grid.Column="3" Text="Rien" />
+        <TextBlock Style="{DynamicResource StyleLabel}" VerticalAlignment="top" Grid.Row="2" Grid.Column="4" Text="Rien" />
+        <TextBlock Style="{DynamicResource StyleLabel}" VerticalAlignment="top" Grid.Row="2" Grid.Column="5" Text="Rien" />
+        <TextBlock Style="{DynamicResource StyleLabel}" VerticalAlignment="top" Grid.Row="2" Grid.Column="6" Text="Rien" />
     </Grid>
 </UserControl>
