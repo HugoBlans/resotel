@@ -76,7 +76,7 @@
                         </StackPanel>
                     </MenuItem.Header>
                 </MenuItem>
-                <MenuItem>
+                <MenuItem x:Name="btnWeekCalendar" Click="btnWeekCalendar_Click">
                     <MenuItem.Header>
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="CalendarWeek" />
