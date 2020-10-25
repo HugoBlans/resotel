@@ -36,6 +36,19 @@
             <RowDefinition Height="*"/>
             <!--afternoon-->
         </Grid.RowDefinitions>
+        <!--change border color-->
+        <Border Grid.Row="0" Grid.ColumnSpan="7" BorderBrush="White" BorderThickness="2"/>
+        <Border Grid.Row="1" Grid.ColumnSpan="7" BorderBrush="White" BorderThickness="2"/>
+        <Border Grid.Row="2" Grid.ColumnSpan="7" BorderBrush="White" BorderThickness="2"/>
+        
+        <Border Grid.Column="0" Grid.RowSpan="3" BorderBrush="White" BorderThickness="2"/>
+        <Border Grid.Column="1" Grid.RowSpan="3" BorderBrush="White" BorderThickness="2"/>
+        <Border Grid.Column="2" Grid.RowSpan="3" BorderBrush="White" BorderThickness="2"/>
+        <Border Grid.Column="3" Grid.RowSpan="3" BorderBrush="White" BorderThickness="2"/>
+        <Border Grid.Column="4" Grid.RowSpan="3" BorderBrush="White" BorderThickness="2"/>
+        <Border Grid.Column="5" Grid.RowSpan="3" BorderBrush="White" BorderThickness="2"/>
+        <Border Grid.Column="6" Grid.RowSpan="3" BorderBrush="White" BorderThickness="2"/>
+
         <!--week list-->
         <TextBlock Style="{DynamicResource StyleLabel}" Grid.Row="0" Grid.Column="0" Text="Lundi"/>
         <TextBlock Style="{DynamicResource StyleLabel}" Grid.Row="0" Grid.Column="1" Text="Mardi" />

@@ -11,14 +11,22 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" Grid.ColumnSpan="2" BorderBrush="White" BorderThickness="2"/>
+        <Border Grid.Row="1" Grid.ColumnSpan="2" BorderBrush="White" BorderThickness="2"/>
+        <Border Grid.Row="2" Grid.ColumnSpan="2" BorderBrush="White" BorderThickness="2"/>
+
+        <Border Grid.Column="0" Grid.RowSpan="3" BorderBrush="White" BorderThickness="2"/>
+        <Border Grid.Column="1" Grid.RowSpan="3" BorderBrush="White" BorderThickness="2"/>
+
         <TextBlock Style="{DynamicResource StyleLabel}" Grid.Row="0" Grid.Column="0" Text="Jour" />
         <TextBlock Style="{DynamicResource StyleLabel}" Grid.Row="1" Grid.Column="0" Text="Matin" />
         <TextBlock Style="{DynamicResource StyleLabel}" Grid.Row="2" Grid.Column="0" Text="Après-midi" />
