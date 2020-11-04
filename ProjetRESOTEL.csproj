@@ -131,17 +131,30 @@
       <DependentUpon>202009241252041_alldb.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Services\ClientService.cs" />
     <Compile Include="Services\ReservationService.cs" />
     <Compile Include="Services\UserService.cs" />
+    <Compile Include="ViewModels\ListClientVueModel.cs" />
     <Compile Include="ViewModels\ListReservationModel.cs" />
+    <Compile Include="ViewModels\NewClientVueModel.cs" />
     <Compile Include="ViewModels\NewReservationModel.cs" />
     <Compile Include="ViewModels\RelayCommand.cs" />
+    <Compile Include="ViewModels\ReservationModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
+    <Compile Include="Views\ucListClient.xaml.cs">
+      <DependentUpon>ucListClient.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ucListReservation.xaml.cs">
       <DependentUpon>ucListReservation.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ucNewClient.xaml.cs">
+      <DependentUpon>ucNewClient.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ucNewReservation.xaml.cs">
       <DependentUpon>ucNewReservation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ucReservation.xaml.cs">
+      <DependentUpon>ucReservation.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -155,11 +168,23 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\ucListClient.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\ucListReservation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\ucNewClient.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\ucNewReservation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ucReservation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

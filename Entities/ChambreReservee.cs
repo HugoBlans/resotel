@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ProjetRESOTEL.Entities
 {
-    class ChambreReservee
+    public class ChambreReservee
     {
         [Key]
         public int Id { get; set; }

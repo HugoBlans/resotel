@@ -1,5 +1,4 @@
-﻿using ProjetRESOTEL.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,14 +16,13 @@ using System.Windows.Shapes;
 namespace ProjetRESOTEL.Views
 {
     /// <summary>
-    /// Logique d'interaction pour ucListReservation.xaml
+    /// Logique d'interaction pour ucNewClient.xaml
     /// </summary>
-    public partial class ucListReservation : UserControl
+    public partial class ucNewClient : UserControl
     {
-        public ucListReservation()
+        public ucNewClient()
         {
             InitializeComponent();
-            DataContext = new ListReservationModel();
         }
     }
 }

@@ -46,5 +46,16 @@ namespace ProjetRESOTEL
             MainTab.Items.Add(_tabUserPage); // Add User Controls    
             MainTab.Items.Refresh();
         }
+
+
+        private void btnListClient_Click_1(object sender, RoutedEventArgs e)
+        {
+            TabItem _tabUserPage;
+            MainTab.Items.Clear(); //Clear previous Items in the user controls which is my tabItems    
+            var userControls = new ucListClient();
+            _tabUserPage = new TabItem { Content = userControls };
+            MainTab.Items.Add(_tabUserPage); // Add User Controls    
+            MainTab.Items.Refresh();
+        }
     }
 }
