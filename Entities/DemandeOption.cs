@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ProjetRESOTEL.Entities
 {
-    class DemandeOption
+    public class DemandeOption
     {
         [Key]
         [Column(Order = 1)]

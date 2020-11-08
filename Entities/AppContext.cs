@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace ProjetRESOTEL.Entities
 {
     [DbConfigurationType(typeof(MySqlEFConfiguration))]
-    class AppContext : DbContext
+    public class AppContext : DbContext
     {
         public AppContext() : base()
         {

@@ -24,6 +24,7 @@ namespace ProjetRESOTEL.Views
         public ucNewReservation()
         {
             InitializeComponent();
+            DataContext = new ViewModels.NewReservationModel();
         }
 
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -61,6 +62,69 @@ namespace ProjetRESOTEL.Views
             if (optCardio.Children.Count > 0)
             {
                 optCardio.Children.RemoveAt(optCardio.Children.Count - 1);
+            }
+        }
+
+        private void checkJacu_Checked(object sender, RoutedEventArgs e)
+        {
+            SingleUpDown sgl = new SingleUpDown();
+            sgl.Value = 1;
+            sgl.Increment = 1;
+            SolidColorBrush transp = new SolidColorBrush();
+            sgl.Background = transp;
+            sgl.BorderBrush = transp;
+            SolidColorBrush white = new SolidColorBrush(Colors.White);
+            sgl.Foreground = white;
+            optJacu.Children.Add(sgl);
+        }
+
+        private void checkJacu_Unchecked(object sender, RoutedEventArgs e)
+        {
+            if (optJacu.Children.Count > 0)
+            {
+                optJacu.Children.RemoveAt(optJacu.Children.Count - 1);
+            }
+        }
+
+        private void checkWifi_Checked(object sender, RoutedEventArgs e)
+        {
+            SingleUpDown sgl = new SingleUpDown();
+            sgl.Value = 1;
+            sgl.Increment = 1;
+            SolidColorBrush transp = new SolidColorBrush();
+            sgl.Background = transp;
+            sgl.BorderBrush = transp;
+            SolidColorBrush white = new SolidColorBrush(Colors.White);
+            sgl.Foreground = white;
+            optWifi.Children.Add(sgl);
+        }
+
+        private void checkWifi_Unchecked(object sender, RoutedEventArgs e)
+        {
+            if (optWifi.Children.Count > 0)
+            {
+                optWifi.Children.RemoveAt(optWifi.Children.Count - 1);
+            }
+        }
+
+        private void checkTennis_Checked(object sender, RoutedEventArgs e)
+        {
+            SingleUpDown sgl = new SingleUpDown();
+            sgl.Value = 1;
+            sgl.Increment = 1;
+            SolidColorBrush transp = new SolidColorBrush();
+            sgl.Background = transp;
+            sgl.BorderBrush = transp;
+            SolidColorBrush white = new SolidColorBrush(Colors.White);
+            sgl.Foreground = white;
+            optTennis.Children.Add(sgl);
+        }
+
+        private void checkTennis_Unchecked(object sender, RoutedEventArgs e)
+        {
+            if (optTennis.Children.Count > 0)
+            {
+                optTennis.Children.RemoveAt(optTennis.Children.Count - 1);
             }
         }
     }
