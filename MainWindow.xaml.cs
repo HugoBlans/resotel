@@ -73,5 +73,15 @@ namespace ProjetRESOTEL
             MainTab.Items.Add(_tabUserPage); // Add User Controls    
             MainTab.Items.Refresh();
         }
+
+        private void btnAddMeal_Click(object sender, RoutedEventArgs e)
+        {
+            TabItem _tabUserPage;
+            MainTab.Items.Clear();
+            var userControls = new ucNewRepas();
+            _tabUserPage = new TabItem { Content = userControls };
+            MainTab.Items.Add(_tabUserPage);
+            MainTab.Items.Refresh();
+        }
     }
 }
