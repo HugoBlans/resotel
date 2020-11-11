@@ -67,7 +67,6 @@ namespace ProjetRESOTEL.ViewModels
         private void Enregistrer()
         {
             client = ClientService.Instance.Enregistrer(client);
-
         }
 
 
