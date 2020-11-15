@@ -25,7 +25,7 @@
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
         <TextBlock Style="{DynamicResource StyleLabel}" Grid.Row="0" Grid.Column="1" Text="Date"/>
-        <CheckBox Grid.Row="1" Grid.Column="1" IsChecked="{Binding isPetitDejeuner}">Petit déjeuner</CheckBox>
+        <CheckBox Grid.Row="1" Grid.Column="1" IsChecked="{Binding Path=isPetitDejeuner}">Petit déjeuner</CheckBox>
         <TextBlock Style="{DynamicResource StyleLabel}" Grid.Row="2" Grid.Column="1" Text="Numero de chambre"/>
 
         <Button Grid.Column="2" Grid.Row="3" Command="{Binding RepasEnregistrer}">
@@ -35,11 +35,12 @@
             </StackPanel>
         </Button>
 
-        <DatePicker Grid.Row="0" Grid.Column="2" SelectedDate="{Binding Path=data,TargetNullValue={x:Static sys:DateTime.Now}}"/>
-        <ComboBox Grid.Row="2" Grid.Column="2">
+        <DatePicker Grid.Row="0" Grid.Column="2" SelectedDate="{Binding Path=date,TargetNullValue={x:Static sys:DateTime.Now}}"/>
+
+        <ComboBox Grid.Row="2" Grid.Column="2" ItemsSource="{Binding pEdibleRoom}" SelectedItem="{Binding Path=currentSelection}">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock Text="{Binding Chambre.Numero}"/>
+                    <TextBlock Text="{Binding Numero}"/>
                 </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>

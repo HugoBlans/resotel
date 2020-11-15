@@ -29,23 +29,14 @@ namespace ProjetRESOTEL.Services
         ///  Permet de recuperer la liste des chambre résérvé avec les chambre associé
         /// </summary>
         /// <returns></returns>
-        public ObservableCollection<KeyValuePair<ChambreReservee, Entities.Chambre>> chargerListChambre()
+        public List<ChambreReservee> chargerListChambre()
         {
+            List<ChambreReservee> lst = new List<ChambreReservee>();
             using (Entities.AppContext context = new Entities.AppContext())
             {
-                Dictionary<ChambreReservee, Chambre> chambre = context.ChambreReservees
-                    .Join
-                    (
-                    context.Chambres,
-                    Cham => Cham.Numero, ChamRese => ChamRese.Numero,
-                    (Cham, ChamRese) => new
-                    {
-                        cham = Cham,
-                        chamRese = ChamRese
-                    }
-                    ).ToDictionary(x => x.cham, x => x.chamRese);
-                return new ObservableCollection<KeyValuePair<ChambreReservee, Entities.Chambre>>(chambre);
+                lst = context.ChambreReservees.ToList();
             }
+            return lst;
         }
         public Repas Enregistrer(Repas repas)
         {

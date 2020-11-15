@@ -10,6 +10,10 @@ namespace ProjetRESOTEL.Entities
 {
     public class Repas
     {
+        public Repas()
+        {
+            DateRepas = System.DateTime.Now;
+        }
         [Key]
         public int Id { get; set; }
 

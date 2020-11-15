@@ -14,9 +14,9 @@ namespace ProjetRESOTEL.ViewModels
     {
         private RepasService serv;
         private Repas newRep;
-        private ObservableCollection<KeyValuePair<ChambreReservee, Entities.Chambre>> edibleRoom;
 
-        public ObservableCollection<KeyValuePair<ChambreReservee, Entities.Chambre>> pEdibleRoom
+        private ObservableCollection<ChambreReservee> edibleRoom;
+        public ObservableCollection<ChambreReservee> pEdibleRoom
         {
             get
             {
@@ -25,14 +25,35 @@ namespace ProjetRESOTEL.ViewModels
             set
             {
                 edibleRoom = value;
-                NotifyPropertyChanged(nameof(pEdibleRoom));
+            }
+        }
+
+        private ChambreReservee _currentSelection;
+        public ChambreReservee currentSelection
+        {
+            get
+            {
+                return _currentSelection;
+            }
+            set
+            {
+                if (_currentSelection == value) return;
+                _currentSelection = value;
+                newRep.ChambreReservee = value;
+                NotifyPropertyChanged();
             }
         }
 
         public NewRepasVueModel()
         {
             serv = RepasService.Instance;
-            pEdibleRoom = serv.chargerListChambre();
+            List<ChambreReservee> lst = serv.chargerListChambre();
+            edibleRoom = new ObservableCollection<ChambreReservee>();
+
+            foreach (ChambreReservee chambre in lst)
+            {
+                edibleRoom.Add(chambre);
+            }
             newRep = new Repas();
         }
 
@@ -40,22 +61,23 @@ namespace ProjetRESOTEL.ViewModels
         {
             get { return newRep; }
         }
-        private bool isPetitDejeuner
+        public bool isPetitDejeuner
         {
             set
             {
                 newRep.EstPetitDejeuner = value;
                 NotifyPropertyChanged();
             }
-            get { return isPetitDejeuner; }
+            get { return newRep.EstPetitDejeuner; }
         }
-        private DateTime date
+        public DateTime date
         {
             set
             {
                 newRep.DateRepas = value;
+                NotifyPropertyChanged();
             }
-            get { return date; }
+            get { return newRep.DateRepas; }
         }
         public ICommand RepasEnregistrer
         {
@@ -66,6 +88,7 @@ namespace ProjetRESOTEL.ViewModels
         }
         private void enregistrer()
         {
+
             newRep = serv.Enregistrer(newRep);
         }
     }
