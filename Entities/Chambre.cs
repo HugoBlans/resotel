@@ -20,6 +20,9 @@ namespace ProjetRESOTEL.Entities
         public int NbLit { get; set; }
 
         [Required]
+        public int NumEtage { get; set; }
+
+        [Required]
         public bool LitEnfant { get; set; }
 
         [Required]
