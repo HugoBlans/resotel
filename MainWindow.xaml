@@ -84,14 +84,6 @@
                         </StackPanel>
                     </MenuItem.Header>
                 </MenuItem>
-                <MenuItem x:Name="btnDayCalendar" Click="btnDayCalendar_Click">
-                    <MenuItem.Header>
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="CalendarToday" />
-                            <TextBlock Text="Planning Jour" Margin="5 0 0 0"/>
-                        </StackPanel>
-                    </MenuItem.Header>
-                </MenuItem>
                 <MenuItem x:Name="btnWeekCalendar" Click="btnWeekCalendar_Click">
                     <MenuItem.Header>
                         <StackPanel Orientation="Horizontal">

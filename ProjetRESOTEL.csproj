@@ -123,6 +123,7 @@
     <Compile Include="Entities\Option.cs" />
     <Compile Include="Entities\Prix.cs" />
     <Compile Include="Entities\Repas.cs" />
+    <Compile Include="Entities\RepasJour.cs" />
     <Compile Include="Entities\Reservation.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Entities\UserContext.cs" />
@@ -147,7 +148,6 @@
       <DependentUpon>202009241252041_alldb.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Services\CalendarService.cs" />
     <Compile Include="Services\ClientService.cs" />
     <Compile Include="Services\RepasService.cs" />
     <Compile Include="Services\ReservationService.cs" />
@@ -155,12 +155,12 @@
     <Compile Include="ViewModels\ListClientVueModel.cs" />
     <Compile Include="ViewModels\ListReservationModel.cs" />
     <Compile Include="ViewModels\NewClientVueModel.cs" />
-    <Compile Include="ViewModels\CalendarVueModel.cs" />
     <Compile Include="ViewModels\NewRepasVueModel.cs" />
     <Compile Include="ViewModels\NewReservationModel.cs" />
     <Compile Include="ViewModels\RelayCommand.cs" />
     <Compile Include="ViewModels\ReservationModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
+    <Compile Include="ViewModels\WeeklyMealVueModel.cs" />
     <Compile Include="Views\ucListClient.xaml.cs">
       <DependentUpon>ucListClient.xaml</DependentUpon>
     </Compile>
@@ -172,9 +172,6 @@
     </Compile>
     <Compile Include="Views\ucNewReservation.xaml.cs">
       <DependentUpon>ucNewReservation.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\ucPlanningJour.xaml.cs">
-      <DependentUpon>ucPlanningJour.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ucPlanningSemaine.xaml.cs">
       <DependentUpon>ucPlanningSemaine.xaml</DependentUpon>
@@ -210,10 +207,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ucNewReservation.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\ucPlanningJour.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
