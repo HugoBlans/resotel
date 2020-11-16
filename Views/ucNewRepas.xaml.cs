@@ -17,13 +17,14 @@ using System.Windows.Shapes;
 namespace ProjetRESOTEL.Views
 {
     /// <summary>
-    /// Logique d'interaction pour ucNewClient.xaml
+    /// Logique d'interaction pour uxNewRepas.xaml
     /// </summary>
-    public partial class ucNewClient : UserControl
+    public partial class ucNewRepas : UserControl
     {
-        public ucNewClient()
+        public ucNewRepas()
         {
-            InitializeComponent(); 
+            InitializeComponent();
+            this.DataContext = new NewRepasVueModel();
         }
     }
 }

@@ -46,8 +46,24 @@ namespace ProjetRESOTEL
             MainTab.Items.Add(_tabUserPage); // Add User Controls    
             MainTab.Items.Refresh();
         }
-
-
+        private void btnWeekCalendar_Click(object sender,RoutedEventArgs e)
+        {
+            TabItem _tabUserPage;
+            MainTab.Items.Clear();
+            var userControle = new ucPlanningSemaine();
+            _tabUserPage = new TabItem { Content = userControle };
+            MainTab.Items.Add(_tabUserPage);
+            MainTab.Items.Refresh();
+        }
+        private void btnDayCalendar_Click(object sender, RoutedEventArgs e)
+        {
+            TabItem _tabUserPage;
+            MainTab.Items.Clear();
+            var userControle = new ucPlanningJour();
+            _tabUserPage = new TabItem { Content = userControle };
+            MainTab.Items.Add(_tabUserPage);
+            MainTab.Items.Refresh();
+        }
         private void btnListClient_Click_1(object sender, RoutedEventArgs e)
         {
             TabItem _tabUserPage;
@@ -64,7 +80,17 @@ namespace ProjetRESOTEL
             MainTab.Items.Clear(); //Clear previous Items in the user controls which is my tabItems    
             var userControls = new ucMenages();
             _tabUserPage = new TabItem { Content = userControls };
-            MainTab.Items.Add(_tabUserPage); // Add User Controls    
+            MainTab.Items.Add(_tabUserPage); // Add User Controls 
+            MainTab.Items.Refresh();
+        }
+
+        private void btnAddMeal_Click(object sender, RoutedEventArgs e)
+        {
+            TabItem _tabUserPage;
+            MainTab.Items.Clear();
+            var userControls = new ucNewRepas();
+            _tabUserPage = new TabItem { Content = userControls };
+            MainTab.Items.Add(_tabUserPage);
             MainTab.Items.Refresh();
         }
     }

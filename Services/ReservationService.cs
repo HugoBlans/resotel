@@ -69,6 +69,7 @@ namespace ProjetRESOTEL.Services
             }
             return resa;
         }
+
     }
 
 }

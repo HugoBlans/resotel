@@ -80,7 +80,15 @@
                         <TextBlock Margin="5,0,0,0" Text="Planning" />
                     </StackPanel>
                 </MenuItem.Header>
-                <MenuItem>
+                <MenuItem x:Name="btnAddMeal" Click="btnAddMeal_Click">
+                    <MenuItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="AddBox"/>
+                            <TextBlock Text="Ajout Repas" Margin="5 0 0 0"/>
+                        </StackPanel>
+                    </MenuItem.Header>
+                </MenuItem>
+                <MenuItem x:Name="btnDayCalendar" Click="btnDayCalendar_Click">
                     <MenuItem.Header>
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="CalendarToday" />
@@ -88,7 +96,7 @@
                         </StackPanel>
                     </MenuItem.Header>
                 </MenuItem>
-                <MenuItem>
+                <MenuItem x:Name="btnWeekCalendar" Click="btnWeekCalendar_Click">
                     <MenuItem.Header>
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="CalendarWeek" />

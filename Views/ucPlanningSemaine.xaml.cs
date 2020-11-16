@@ -1,5 +1,4 @@
-﻿using ProjetRESOTEL.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,13 +16,13 @@ using System.Windows.Shapes;
 namespace ProjetRESOTEL.Views
 {
     /// <summary>
-    /// Logique d'interaction pour ucNewClient.xaml
+    /// Logique d'interaction pour ucPlanningSemaine.xaml
     /// </summary>
-    public partial class ucNewClient : UserControl
+    public partial class ucPlanningSemaine : UserControl
     {
-        public ucNewClient()
+        public ucPlanningSemaine()
         {
-            InitializeComponent(); 
+            InitializeComponent();
         }
     }
 }
