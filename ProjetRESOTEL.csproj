@@ -151,11 +151,8 @@
       <DependentUpon>202011161526548_ajoutNumEtage.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-<<<<<<< HEAD
     <Compile Include="Services\ChambresANettoyerService.cs" />
-=======
     <Compile Include="Services\CalendarService.cs" />
->>>>>>> master
     <Compile Include="Services\ClientService.cs" />
     <Compile Include="Services\RepasService.cs" />
     <Compile Include="Services\ReservationService.cs" />
