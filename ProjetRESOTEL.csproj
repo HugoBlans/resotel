@@ -147,11 +147,18 @@
     <Compile Include="Migrations\202009241252041_alldb.Designer.cs">
       <DependentUpon>202009241252041_alldb.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202011161526548_ajoutNumEtage.cs" />
+    <Compile Include="Migrations\202011161526548_ajoutNumEtage.Designer.cs">
+      <DependentUpon>202011161526548_ajoutNumEtage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Services\ChambresANettoyerService.cs" />
     <Compile Include="Services\ClientService.cs" />
     <Compile Include="Services\RepasService.cs" />
     <Compile Include="Services\ReservationService.cs" />
     <Compile Include="Services\UserService.cs" />
+    <Compile Include="ViewModels\AllChambresANettoyer.cs" />
+    <Compile Include="ViewModels\ChambreANettoyerViewModel.cs" />
     <Compile Include="ViewModels\ListClientVueModel.cs" />
     <Compile Include="ViewModels\ListReservationModel.cs" />
     <Compile Include="ViewModels\NewClientVueModel.cs" />
@@ -166,6 +173,9 @@
     </Compile>
     <Compile Include="Views\ucListReservation.xaml.cs">
       <DependentUpon>ucListReservation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ucMenages.xaml.cs">
+      <DependentUpon>ucMenages.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ucNewClient.xaml.cs">
       <DependentUpon>ucNewClient.xaml</DependentUpon>
@@ -199,6 +209,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ucListReservation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ucMenages.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -251,6 +265,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202009241252041_alldb.resx">
       <DependentUpon>202009241252041_alldb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011161526548_ajoutNumEtage.resx">
+      <DependentUpon>202011161526548_ajoutNumEtage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
