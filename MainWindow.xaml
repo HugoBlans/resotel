@@ -19,20 +19,13 @@
     TextOptions.TextRenderingMode="Auto"
     WindowState="Normal">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <Menu Grid.ColumnSpan="3">
-            <MenuItem Click="btnListClient_Click_1">
+        <Menu Grid.Row="0">
+            <MenuItem Command="{Binding Navigation}" CommandParameter="clients">
                 <MenuItem.Header>
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="AccountBox" />
@@ -40,7 +33,7 @@
                     </StackPanel>
                 </MenuItem.Header>
             </MenuItem>
-            <MenuItem Click="btnListReservation_Click1">
+            <MenuItem Command="{Binding Navigation}" CommandParameter="réservations">
                 <MenuItem.Header>
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="LocalActivity" />
@@ -64,7 +57,10 @@
                         <TextBlock Margin="5,0,0,0" Text="Planning" />
                     </StackPanel>
                 </MenuItem.Header>
-                <MenuItem x:Name="btnAddMeal" Click="btnAddMeal_Click">
+                <MenuItem
+                    x:Name="btnAddMeal"
+                    Command="{Binding Navigation}"
+                    CommandParameter="ajoutRepas">
                     <MenuItem.Header>
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="AddBox" />
@@ -72,7 +68,10 @@
                         </StackPanel>
                     </MenuItem.Header>
                 </MenuItem>
-                <MenuItem x:Name="btnWeekCalendar" Click="btnWeekCalendar_Click">
+                <MenuItem
+                    x:Name="btnWeekCalendar"
+                    Command="{Binding Navigation}"
+                    CommandParameter="planningRepas">
                     <MenuItem.Header>
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="CalendarWeek" />
@@ -81,7 +80,7 @@
                     </MenuItem.Header>
                 </MenuItem>
             </MenuItem>
-            <MenuItem Click="btnListMenages_Click_1">
+            <MenuItem Command="{Binding Navigation}" CommandParameter="ménages">
                 <MenuItem.Header>
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="Broom" />
@@ -91,12 +90,6 @@
             </MenuItem>
         </Menu>
 
-        <TabControl
-            x:Name="MainTab"
-            Grid.Row="1"
-            Grid.RowSpan="3"
-            Grid.Column="3"
-            Background="Transparent"
-            BorderBrush="Transparent" />
+        <ContentControl Grid.Row="1" Content="{Binding CurrentPage}" />
     </Grid>
 </Window>
