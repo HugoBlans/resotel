@@ -38,7 +38,7 @@
             </StackPanel>
         </Button>
 
-        <Button Margin="10 0 0 0" Grid.Column="4" Command="{Binding CommandeSupprimer}">
+        <Button Margin="10 0 0 0" Grid.Column="4" Command="{Binding CommandeSupprimer}" Background="Red" BorderBrush="Red">
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Supprimer" Margin="5 0 0 0" />
             </StackPanel>

@@ -42,9 +42,11 @@
             </ListBox.ItemTemplate>
         </ListBox>
 
-        <Menu Grid.ColumnSpan="3">
-            <MenuItem Header="Ajouter client" Command="{Binding NouveauCommande}" CommandParameter="Client" />
-        </Menu>
+        <Button Grid.Column="0" Command="{Binding NouveauCommande}" CommandParameter="Client" Margin="0 0 0 5">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Ajouter Client" Margin="5 0 0 0" />
+            </StackPanel>
+        </Button>
         <GridSplitter Grid.Row="1" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
                       Background="Gray" Width="3" Grid.RowSpan="3" />
 
