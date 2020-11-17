@@ -32,7 +32,7 @@ namespace ProjetRESOTEL.ViewModels
         public ListReservationModel()
         {
             srv = ReservationService.Instance;
-            ListeResCli = srv.chargerListResa();
+            //ListeResCli = srv.chargerListResa();
             observer = CollectionViewSource.GetDefaultView(ListeResCli);
 
             // TODO Comme Nadine pour observer les changements de l'élément courrrant

@@ -40,29 +40,13 @@
                     </StackPanel>
                 </MenuItem.Header>
             </MenuItem>
-            <MenuItem>
+            <MenuItem Click="btnListReservation_Click1">
                 <MenuItem.Header>
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="LocalActivity" />
                         <TextBlock Margin="5,0,0,0" Text="Réservations" />
                     </StackPanel>
                 </MenuItem.Header>
-                <MenuItem x:Name="btnNewReservation" Click="btnNewReservation_Checked">
-                    <MenuItem.Header>
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="AddBox" />
-                            <TextBlock Margin="5,0,0,0" Text="Nouvelle réservation" />
-                        </StackPanel>
-                    </MenuItem.Header>
-                </MenuItem>
-                <MenuItem x:Name="btnListReservation" Click="btnListReservation_Click">
-                    <MenuItem.Header>
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="ViewList" />
-                            <TextBlock Margin="5,0,0,0" Text="Liste réservations" />
-                        </StackPanel>
-                    </MenuItem.Header>
-                </MenuItem>
             </MenuItem>
 
             <MenuItem>
@@ -83,8 +67,8 @@
                 <MenuItem x:Name="btnAddMeal" Click="btnAddMeal_Click">
                     <MenuItem.Header>
                         <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="AddBox"/>
-                            <TextBlock Text="Ajout Repas" Margin="5 0 0 0"/>
+                            <materialDesign:PackIcon Kind="AddBox" />
+                            <TextBlock Margin="5,0,0,0" Text="Ajout Repas" />
                         </StackPanel>
                     </MenuItem.Header>
                 </MenuItem>

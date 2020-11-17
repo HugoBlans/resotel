@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TestHotel.ViewModels
+namespace ProjetRESOTEL.ViewModels
 {
     public class ChambreANettoyerViewModel : ViewModelBase
     {

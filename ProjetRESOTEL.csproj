@@ -152,13 +152,18 @@
       <DependentUpon>202011161526548_ajoutNumEtage.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Services\ChambreReserveeService.cs" />
     <Compile Include="Services\ChambresANettoyerService.cs" />
     <Compile Include="Services\ClientService.cs" />
+    <Compile Include="Services\ClientsService.cs" />
     <Compile Include="Services\RepasService.cs" />
     <Compile Include="Services\ReservationService.cs" />
     <Compile Include="Services\UserService.cs" />
     <Compile Include="ViewModels\AllChambresANettoyer.cs" />
+    <Compile Include="ViewModels\AllReservationsViewModel.cs" />
     <Compile Include="ViewModels\ChambreANettoyerViewModel.cs" />
+    <Compile Include="ViewModels\ChambreReserveeViewModel.cs" />
+    <Compile Include="ViewModels\ClientViewModel.cs" />
     <Compile Include="ViewModels\ListClientVueModel.cs" />
     <Compile Include="ViewModels\ListReservationModel.cs" />
     <Compile Include="ViewModels\NewClientVueModel.cs" />
@@ -166,10 +171,14 @@
     <Compile Include="ViewModels\NewReservationModel.cs" />
     <Compile Include="ViewModels\RelayCommand.cs" />
     <Compile Include="ViewModels\ReservationModel.cs" />
+    <Compile Include="ViewModels\ReservationViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="ViewModels\WeeklyMealVueModel.cs" />
     <Compile Include="Views\ucListClient.xaml.cs">
       <DependentUpon>ucListClient.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UCListeChambreReservees.xaml.cs">
+      <DependentUpon>UCListeChambreReservees.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ucListReservation.xaml.cs">
       <DependentUpon>ucListReservation.xaml</DependentUpon>
@@ -192,6 +201,9 @@
     <Compile Include="Views\ucNewRepas.xaml.cs">
       <DependentUpon>ucNewRepas.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ucReservations.xaml.cs">
+      <DependentUpon>ucReservations.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -205,6 +217,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\ucListClient.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UCListeChambreReservees.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -233,6 +249,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ucNewRepas.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ucReservations.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

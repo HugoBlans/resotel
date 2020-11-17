@@ -1,27 +1,67 @@
-﻿<Application x:Class="ProjetRESOTEL.App"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             xmlns:wpfTool="clr-namespace:Xceed.Wpf.Toolkit;assembly=Xceed.Wpf.Toolkit"
-             xmlns:local="clr-namespace:ProjetRESOTEL"
-             StartupUri="MainWindow.xaml">
+﻿<Application
+    x:Class="ProjetRESOTEL.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:ProjetRESOTEL"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:wpfTool="clr-namespace:Xceed.Wpf.Toolkit;assembly=Xceed.Wpf.Toolkit"
+    StartupUri="MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <materialDesign:BundledTheme BaseTheme="Dark" PrimaryColor="LightBlue" SecondaryColor="Lime" />
+                <materialDesign:BundledTheme
+                    BaseTheme="Dark"
+                    PrimaryColor="LightBlue"
+                    SecondaryColor="Lime" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
-            <Style x:Key="StyleLabel" TargetType="TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}">
-                <Setter Property="Margin" Value="0 5 0 12" />
-                <Setter Property="VerticalAlignment" Value="Bottom"/>
+            <Style
+                x:Key="StyleLabel"
+                BasedOn="{StaticResource {x:Type TextBlock}}"
+                TargetType="TextBlock">
+                <Setter Property="Margin" Value="0,5,0,12" />
+                <Setter Property="VerticalAlignment" Value="Bottom" />
 
             </Style>
 
-            <Style TargetType="TextBox" BasedOn="{StaticResource MaterialDesignTextBoxBase}">
-                <Setter Property="Margin" Value="0 0 0 7"/>
-                <Setter Property="VerticalContentAlignment" Value="Bottom"/>
+            <Style BasedOn="{StaticResource MaterialDesignTextBoxBase}" TargetType="TextBox">
+                <Setter Property="Margin" Value="0,0,0,7" />
+                <Setter Property="VerticalContentAlignment" Value="Bottom" />
 
+            </Style>
+
+            <Style
+                x:Key="StyleField"
+                BasedOn="{StaticResource MaterialDesignTextBoxBase}"
+                TargetType="TextBox">
+                <Setter Property="Margin" Value="8,0,8,8" />
+                <Setter Property="VerticalContentAlignment" Value="Bottom" />
+
+            </Style>
+
+            <Style
+                x:Key="StyleFieldDatePicker"
+                BasedOn="{StaticResource MaterialDesignDatePicker}"
+                TargetType="DatePicker">
+                <Setter Property="Margin" Value="8,0,8,8" />
+                <Setter Property="VerticalContentAlignment" Value="Bottom" />
+            </Style>
+
+            <Style
+                x:Key="StyleFieldComboBox"
+                BasedOn="{StaticResource MaterialDesignComboBox}"
+                TargetType="ComboBox">
+                <Setter Property="Margin" Value="8,0,8,8" />
+                <Setter Property="VerticalContentAlignment" Value="Bottom" />
+            </Style>
+
+            <Style BasedOn="{StaticResource MaterialDesignDataGridColumnHeader}" TargetType="DataGridColumnHeader">
+                <Setter Property="HorizontalContentAlignment" Value="Center" />
+            </Style>
+
+            <Style BasedOn="{StaticResource MaterialDesignDataGrid}" TargetType="DataGrid">
+                <Setter Property="GridLinesVisibility" Value="None" />
             </Style>
         </ResourceDictionary>
     </Application.Resources>

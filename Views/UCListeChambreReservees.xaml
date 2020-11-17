@@ -1,0 +1,65 @@
+﻿<UserControl
+    x:Class="ProjetRESOTEL.Views.UCListeChambreReservees"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:ProjetRESOTEL.Views"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <GroupBox Padding="0">
+        <GroupBox.Header>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="auto" />
+                </Grid.ColumnDefinitions>
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">Chambres réservées</TextBlock>
+                <Button
+                    Grid.Column="1"
+                    Margin="0"
+                    Padding="0"
+                    Background="Transparent"
+                    BorderBrush="Transparent"
+                    Command="{Binding CommandeNouvelleChambreReservee}">
+                    <materialDesign:PackIcon
+                        Width="24"
+                        Height="24"
+                        Foreground="GreenYellow"
+                        Kind="Add" />
+                </Button>
+            </Grid>
+        </GroupBox.Header>
+        <DataGrid
+            Grid.Row="0"
+            Margin="8"
+            AutoGenerateColumns="False"
+            HorizontalGridLinesBrush="Azure"
+            IsSynchronizedWithCurrentItem="True"
+            ItemsSource="{Binding ListeChambreReservees}"
+            SelectionMode="Single">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding NbPersonne}" Header="Nombre de personnes" />
+                <DataGridTextColumn Binding="{Binding NumeroChambre}" Header="Numero de chambre" />
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button
+                                Margin="0"
+                                Padding="0"
+                                Background="Transparent"
+                                BorderBrush="Transparent"
+                                Command="{Binding CommandeSupprimerChambreReservees}"
+                                Foreground="DarkRed">
+                                <materialDesign:PackIcon
+                                    Width="24"
+                                    Height="24"
+                                    Kind="Trash" />
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </GroupBox>
+</UserControl>

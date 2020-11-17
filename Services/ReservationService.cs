@@ -25,49 +25,72 @@ namespace ProjetRESOTEL.Services
         }
         #endregion
 
-        /// <summary>
-        /// Permet d'afficher la liste des réservation et clients associés
-        /// </summary>
-        /// <returns></returns>
-        public ObservableCollection<KeyValuePair<Reservation, Entities.Client>> chargerListResa()
+        public int AddReservation(Reservation resa)
         {
             using (Entities.AppContext context = new Entities.AppContext())
             {
-                // FROM
-                Dictionary<Reservation, Client> resa = context.Reservations
-                    .Join(
-                        // JOIN
-                        context.Clients,
-                        // ON
-                        Res => Res.IdentifiantCli,
-                        Cli => Cli.IdentifiantCli,
-                        // SELECT
-                        (Res, Cli) => new
-                        {
-                            cli = Cli,
-                            res = Res
-                        }
-                    ).ToDictionary(x => x.res, x => x.cli);
-                return new ObservableCollection<KeyValuePair<Reservation, Entities.Client>>(resa);
+                if (resa != null)
+                {
+                    resa.DateReservation = DateTime.Now;
+                    context.Reservations.Add(resa);
+                    context.SaveChanges();
+                }
+            }
+            return resa.IdentifiantRes;
+        }
+
+        public Reservation GetReservation(int id)
+        {
+            using (Entities.AppContext context = new Entities.AppContext())
+            {
+                return context.Reservations.Find(id);
             }
         }
 
-        public Reservation Enregistrer(Reservation resa)
+        public List<Reservation> GetReservations()
         {
-            using(Entities.AppContext context = new Entities.AppContext())
+            using (Entities.AppContext context = new Entities.AppContext())
             {
-                if (resa.IdentifiantRes > 0)
-                {
-                    context.Reservations.Attach(resa);
-                    context.Entry(resa).State = System.Data.Entity.EntityState.Modified;
-                }
-                else
-                {
-                    context.Reservations.Add(resa);
-                }
-                context.SaveChanges();
+                return context.Reservations.ToList();
             }
-            return resa;
+        }
+
+        public List<ChambreReservee> GetChambresReservées(int? idResa)
+        {
+            using (Entities.AppContext context = new Entities.AppContext())
+            {
+                return (from cr in context.ChambreReservees
+                        where cr.IdentifiantRes == idResa
+                        select cr).ToList();
+            }
+        }
+
+        public void UpdateReservation(Reservation resa)
+        {
+            using (Entities.AppContext context = new Entities.AppContext())
+            {
+                Reservation resaToUpdate = context.Reservations.Find(resa.IdentifiantCli);
+                if (resaToUpdate != null)
+                {
+                    resaToUpdate.IdentifiantCli = resa.IdentifiantCli;
+                    resaToUpdate.DateDebutSejour = resa.DateDebutSejour;
+                    resaToUpdate.NbNuits = resa.NbNuits;
+                    context.SaveChanges();
+                }
+            }
+        }
+
+        public void RemoveReservation(int? id)
+        {
+            using (Entities.AppContext context = new Entities.AppContext())
+            {
+                Reservation resaToRemove = context.Reservations.Find(id);
+                if (resaToRemove != null)
+                {
+                    context.Reservations.Remove(resaToRemove);
+                    context.SaveChanges();
+                }
+            }
         }
 
     }
