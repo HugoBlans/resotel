@@ -38,6 +38,16 @@ namespace ProjetRESOTEL.Services
             }
             return lst;
         }
+        public List<RepasJour> chargerRepasHebdo(DateTime date)
+        {
+            DateTime dateFin = date.AddDays(7);
+            List<RepasJour> lst = new List<RepasJour>();
+            for (DateTime curDate = date; curDate < dateFin; curDate = curDate.AddDays(1))
+            {
+                lst.Add(new RepasJour(curDate));
+            }
+            return lst;
+        }
         public Repas Enregistrer(Repas repas)
         {
             using (Entities.AppContext context = new Entities.AppContext())
