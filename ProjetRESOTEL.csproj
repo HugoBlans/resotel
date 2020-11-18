@@ -165,13 +165,10 @@
     <Compile Include="ViewModels\ChambreReserveeViewModel.cs" />
     <Compile Include="ViewModels\ClientViewModel.cs" />
     <Compile Include="ViewModels\ListClientVueModel.cs" />
-    <Compile Include="ViewModels\ListReservationModel.cs" />
     <Compile Include="ViewModels\NavigationViewModel.cs" />
     <Compile Include="ViewModels\NewClientVueModel.cs" />
     <Compile Include="ViewModels\NewRepasVueModel.cs" />
-    <Compile Include="ViewModels\NewReservationModel.cs" />
     <Compile Include="ViewModels\RelayCommand.cs" />
-    <Compile Include="ViewModels\ReservationModel.cs" />
     <Compile Include="ViewModels\ReservationViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="ViewModels\WeeklyMealVueModel.cs" />
@@ -181,23 +178,14 @@
     <Compile Include="Views\UCListeChambreReservees.xaml.cs">
       <DependentUpon>UCListeChambreReservees.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\ucListReservation.xaml.cs">
-      <DependentUpon>ucListReservation.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\ucMenages.xaml.cs">
       <DependentUpon>ucMenages.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ucNewClient.xaml.cs">
       <DependentUpon>ucNewClient.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\ucNewReservation.xaml.cs">
-      <DependentUpon>ucNewReservation.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\ucPlanningSemaine.xaml.cs">
       <DependentUpon>ucPlanningSemaine.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\ucReservation.xaml.cs">
-      <DependentUpon>ucReservation.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ucNewRepas.xaml.cs">
       <DependentUpon>ucNewRepas.xaml</DependentUpon>
@@ -225,10 +213,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\ucListReservation.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Views\ucMenages.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -237,15 +221,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\ucNewReservation.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Views\ucPlanningSemaine.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\ucReservation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
