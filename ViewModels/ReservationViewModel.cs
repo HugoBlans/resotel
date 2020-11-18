@@ -90,7 +90,7 @@ namespace ProjetRESOTEL.ViewModels
 
         //liaison table chambres réservées associées
         public ObservableCollection<ChambreReserveeViewModel> ListeChambreReservees { get; set; }
-
+        public ObservableCollection<DemandeOption> ListeDemandeOptions { get; set; }
         private readonly ICollectionView observerChambres;
 
 

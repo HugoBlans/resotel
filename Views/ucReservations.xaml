@@ -144,96 +144,9 @@
                     <local:UCListeChambreReservees
                         Grid.Row="1"
                         Margin="8"
-                        DataContext="{Binding CurrentReservation}" />
-                    <GroupBox
-                        Grid.Row="2"
-                        Margin="8"
-                        Foreground="White">
-                        <GroupBox.Header>
-                            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
-                                <TextBlock>Options</TextBlock>
-                            </StackPanel>
-                        </GroupBox.Header>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="*" />
-                            </Grid.ColumnDefinitions>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="auto" />
-                                <RowDefinition Height="auto" />
-                            </Grid.RowDefinitions>
-                            <TextBlock
-                                Grid.Row="0"
-                                Grid.Column="0"
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Center"
-                                TextAlignment="Center"
-                                TextWrapping="Wrap">
-                                Espace Cardio
-                            </TextBlock>
-                            <CheckBox
-                                Grid.Row="1"
-                                Grid.Column="0"
-                                HorizontalAlignment="Center" />
-                            <TextBlock
-                                Grid.Row="0"
-                                Grid.Column="1"
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Center"
-                                TextAlignment="Center"
-                                TextWrapping="Wrap">
-                                Jacuzzi/Hammam
-                            </TextBlock>
-                            <CheckBox
-                                Grid.Row="1"
-                                Grid.Column="1"
-                                HorizontalAlignment="Center" />
-                            <TextBlock
-                                Grid.Row="0"
-                                Grid.Column="2"
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Center"
-                                TextAlignment="Center"
-                                TextWrapping="Wrap">
-                                WiFi
-                            </TextBlock>
-                            <CheckBox
-                                Grid.Row="1"
-                                Grid.Column="2"
-                                HorizontalAlignment="Center" />
+                        DataContext="{Binding CurrentReservation}"/>
 
-                            <TextBlock
-                                Grid.Row="0"
-                                Grid.Column="3"
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Center"
-                                TextAlignment="Center"
-                                TextWrapping="Wrap">
-                                Cours de Tennis
-                            </TextBlock>
-                            <CheckBox
-                                Grid.Row="1"
-                                Grid.Column="3"
-                                HorizontalAlignment="Center" />
-                            <TextBlock
-                                Grid.Row="0"
-                                Grid.Column="4"
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Center"
-                                TextAlignment="Center"
-                                TextWrapping="Wrap">
-                                Vue sur cours intérieure
-                            </TextBlock>
-                            <CheckBox
-                                Grid.Row="1"
-                                Grid.Column="4"
-                                HorizontalAlignment="Center" />
-                        </Grid>
-                    </GroupBox>
+                        
                     <StackPanel
                         Grid.Row="3"
                         HorizontalAlignment="Right"
