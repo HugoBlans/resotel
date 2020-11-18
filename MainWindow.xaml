@@ -41,15 +41,6 @@
                     </StackPanel>
                 </MenuItem.Header>
             </MenuItem>
-
-            <MenuItem>
-                <MenuItem.Header>
-                    <StackPanel Orientation="Horizontal">
-                        <materialDesign:PackIcon Kind="Hotel" />
-                        <TextBlock Margin="5,0,0,0" Text="Chambres" />
-                    </StackPanel>
-                </MenuItem.Header>
-            </MenuItem>
             <MenuItem>
                 <MenuItem.Header>
                     <StackPanel Orientation="Horizontal">
