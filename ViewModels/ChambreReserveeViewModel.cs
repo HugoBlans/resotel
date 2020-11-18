@@ -2,6 +2,7 @@
 using ProjetRESOTEL.Services;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,14 +16,39 @@ namespace ProjetRESOTEL.ViewModels
 
         #region "Propriétés de la table"
         private ChambreReservee _chambreReservee;
-
+        private ObservableCollection<DemandeOption> _ListeDemandeOptions;
+        public ObservableCollection<DemandeOption> ListeDemandeOptions
+        {
+            get
+            {
+                return _ListeDemandeOptions;
+            }
+            set
+            {
+                _ListeDemandeOptions = value;
+            }
+        }
+        private DemandeOption _CurrentSelectionDOption;
+        public DemandeOption currentSelection
+        {
+            get
+            {
+                return _CurrentSelectionDOption;
+            }
+            set
+            {
+                _CurrentSelectionDOption = value;
+                NotifyPropertyChanged();
+            }
+        }
         public ChambreReservee ChambreReservee
         {
             get { return _chambreReservee; }
             set { _chambreReservee = value; NotifyPropertyChanged(); }
         }
 
-        public int ID { 
+        public int ID
+        {
             get
             {
                 return ChambreReservee.Id;
@@ -31,22 +57,24 @@ namespace ProjetRESOTEL.ViewModels
             {
                 ChambreReservee.Id = value;
                 NotifyPropertyChanged();
-            } 
+            }
         }
 
-        public int NbPersonne { 
-            get 
+        public int NbPersonne
+        {
+            get
             {
                 return ChambreReservee.NbPersonne;
             }
-            set 
+            set
             {
                 ChambreReservee.NbPersonne = value;
                 NotifyPropertyChanged();
-            } 
+            }
         }
 
-        public int NumeroChambre { 
+        public int NumeroChambre
+        {
             get
             {
                 return ChambreReservee.Numero;
@@ -58,12 +86,13 @@ namespace ProjetRESOTEL.ViewModels
             }
         }
 
-        public int IdRes {
-            get 
+        public int IdRes
+        {
+            get
             {
                 return ChambreReservee.IdentifiantRes;
-            } 
-            set 
+            }
+            set
             {
                 ChambreReservee.IdentifiantRes = value;
                 NotifyPropertyChanged();
@@ -74,6 +103,10 @@ namespace ProjetRESOTEL.ViewModels
         {
             Srv = srv;
             ChambreReservee = cr;
+            List<DemandeOption> dOption =srv.getOptionDemande(cr.Id);
+            List<Option> options = srv.GetOptions();
+            _ListeDemandeOptions = new ObservableCollection<DemandeOption>();
+            foreach (DemandeOption optionD in dOption) _ListeDemandeOptions.Add(optionD);
         }
 
         #region "Commandes
@@ -105,7 +138,8 @@ namespace ProjetRESOTEL.ViewModels
             if (ID == 0)
             {
                 Srv.AddChambreReservee(ChambreReservee);
-            } else
+            }
+            else
             {
                 Srv.UpdateChambreReservee(ChambreReservee);
             }
