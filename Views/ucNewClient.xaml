@@ -26,10 +26,10 @@
             <RowDefinition x:Name="row6" Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Style="{DynamicResource StyleLabel}" Grid.Row="1" Grid.Column="1" Text="Nom" />
-        <TextBlock Style="{DynamicResource StyleLabel}" Grid.Row="2" Grid.Column="1" Text="Prénom"/>
-        <TextBlock Style="{DynamicResource StyleLabel}" Grid.Row="3" Grid.Column="1" Text="Email"/>
-        <TextBlock Style="{DynamicResource StyleLabel}" Grid.Row="4" Grid.Column="1" Text="Téléphone"/>
+        <TextBlock Style="{DynamicResource StyleLabel}" Grid.Row="1" Grid.Column="1" Text="Nom : " />
+        <TextBlock Style="{DynamicResource StyleLabel}" Grid.Row="2" Grid.Column="1" Text="Prénom : "/>
+        <TextBlock Style="{DynamicResource StyleLabel}" Grid.Row="3" Grid.Column="1" Text="Email : "/>
+        <TextBlock Style="{DynamicResource StyleLabel}" Grid.Row="4" Grid.Column="1" Text="Téléphone : "/>
 
         <Button Grid.Column="2" Grid.Row="6" Margin="125 0 125 0" Command="{Binding CommandeEnregistrer}">
             <StackPanel Orientation="Horizontal">
@@ -38,7 +38,7 @@
             </StackPanel>
         </Button>
 
-        <Button Margin="10 0 0 0" Grid.Column="4" Command="{Binding CommandeSupprimer}" Background="Red" BorderBrush="Red">
+        <Button Margin="10 5 0 0" Grid.Column="4" Command="{Binding CommandeSupprimer}" Background="Red" BorderBrush="Red">
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Supprimer" Margin="5 0 0 0" />
             </StackPanel>

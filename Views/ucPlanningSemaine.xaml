@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:wpfTool="clr-namespace:Xceed.Wpf.Toolkit;assembly=Xceed.Wpf.Toolkit"
+             xml:lang="fr-FR"
              FontFamily="{DynamicResource MaterialDesignFont}"
              TextElement.Foreground="{DynamicResource MaterialDesignBody}"
              TextElement.FontSize="20"
@@ -12,27 +13,40 @@
              mc:Ignorable="d" >
     <Grid>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal">
-            <TextBlock Style="{DynamicResource StyleLabel}" Text="Nombre de Petit dejeuner cette semaine:"/>
-            <TextBlock Style="{DynamicResource StyleLabel}" Text="{Binding Path=NbRepasMatin}"/>
+
+        <StackPanel Background="#03A9F4" Grid.Column="1" Grid.ColumnSpan="2">
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" >Résumé repas</TextBlock>
         </StackPanel>
-        <StackPanel Orientation="Horizontal" Grid.Row="1">
-            <TextBlock Style="{DynamicResource StyleLabel}" Text="Nombre de déjeuner cette semaine:"/>
-            <TextBlock Style="{DynamicResource StyleLabel}" Text="{Binding Path=NbRepasMidi}"/>
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1" Margin=" 0 5 0 0 ">
+            <TextBlock Style="{DynamicResource StyleLabel}" Text="Nombre de Petit dejeuner cette semaine:" Margin=" 5 0 0 0 "/>
+            <TextBlock Style="{DynamicResource StyleLabel}" Text="{Binding Path=NbRepasMatin}" Margin=" 5 0 0 0 "/>
         </StackPanel>
-        <Button Content="Previous" Grid.Column="1" Grid.RowSpan="2" Command="{Binding previous}"/>
-        <Button Content="Next" Grid.Column="2" Grid.RowSpan="2" Command="{Binding next}"/>
-        <DataGrid Name="RepasMidi" Grid.Row="3" Grid.ColumnSpan="3" ItemsSource="{Binding Path=allMeal}" AutoGenerateColumns="False">
+        <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1">
+            <TextBlock Style="{DynamicResource StyleLabel}" Text="Nombre de déjeuner cette semaine:" Margin=" 5 0 0 0 "/>
+            <TextBlock Style="{DynamicResource StyleLabel}" Text="{Binding Path=NbRepasMidi}" Margin=" 5 0 0 0 "/>
+        </StackPanel>
+        <StackPanel Background="#03A9F4" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Margin=" 0 10 0 0 ">
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" >Calendrier Hebdomadaire</TextBlock>
+        </StackPanel>
+        <StackPanel Grid.Column="2" Grid.Row="4" HorizontalAlignment="Right" Orientation="Horizontal" Margin="0 10 0 0">
+            <Button Content="Semaine précédente" Margin="0,0,8,0" Command="{Binding previous}"/>
+            <Button Content="Semaine suivante" Margin="0,0,8,0" Command="{Binding next}"/>
+        </StackPanel>
+        
+        <DataGrid Name="RepasMidi" Grid.Row="5" Grid.ColumnSpan="2" Grid.Column="1" ItemsSource="{Binding Path=allMeal}" AutoGenerateColumns="False" FontSize="20">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Date" Binding="{Binding dateHebdo, StringFormat=dddd dd MMMM}"  CanUserSort="False"/>
                 <DataGridTextColumn Header="Repas matin" Binding="{Binding nbRepasMatin}"  CanUserSort="False"/>
