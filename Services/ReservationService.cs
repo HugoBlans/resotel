@@ -92,6 +92,22 @@ namespace ProjetRESOTEL.Services
                 }
             }
         }
+        public void getOption(ref List<DemandeOption>dOptions,ref List<Option>options, int chambreID)
+        {
+            dOptions = new List<DemandeOption>();
+            options = new List<Option>();
+            using(Entities.AppContext context = new Entities.AppContext())
+            {
+                foreach(DemandeOption option in context.DemandeOptions)
+                {
+                    if(option.IdChambreReservee == chambreID)
+                    {
+                        dOptions.Add(option);
+                        options.Add(context.Options.Find(option.IdOption));
+                    }
+                }
+            }
+        }
 
     }
 
