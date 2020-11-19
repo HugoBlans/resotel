@@ -69,8 +69,8 @@
                                     <ColumnDefinition Width="*" />
                                     <ColumnDefinition Width="auto" />
                                 </Grid.ColumnDefinitions>
-                                <ComboBox Grid.Column="0" ItemsSource="{Binding ListeOption}" SelectedItem="{Binding Path=currentSelection}"></ComboBox>
-                                <Button Grid.Column="1" Margin="0" Padding="0" Background="Transparent" BorderBrush="Transparent" Command="{Binding AddOption}">
+                                <ComboBox Name="CBOptions" Grid.Column="0" ItemsSource="{Binding OptionVueModels}"/>
+                                <Button Grid.Column="1" Margin="0" Padding="0" Background="Transparent" BorderBrush="Transparent" Click="Button_Click">
                                     <materialDesign:PackIcon Width="24" Height="24" Foreground="GreenYellow" Kind="Add" />
                                 </Button>
                             </Grid>

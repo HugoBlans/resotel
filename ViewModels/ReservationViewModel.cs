@@ -12,7 +12,7 @@ using System.Windows.Input;
 
 namespace ProjetRESOTEL.ViewModels
 {
-    public class ReservationViewModel : ViewModelBase   
+    public class ReservationViewModel : ViewModelBase
     {
         public ReservationService Srv;
 
@@ -38,12 +38,13 @@ namespace ProjetRESOTEL.ViewModels
             }
         }
 
-        public DateTime? DateDebutSejour {
-        get
+        public DateTime? DateDebutSejour
+        {
+            get
             {
                 return Reservation.DateDebutSejour;
             }
-        set
+            set
             {
                 Reservation.DateDebutSejour = value;
                 NotifyPropertyChanged();
@@ -86,14 +87,12 @@ namespace ProjetRESOTEL.ViewModels
             set { _client = value; NotifyPropertyChanged(); }
         }
 
-
-
         //liaison table chambres réservées associées
         public ObservableCollection<ChambreReserveeViewModel> ListeChambreReservees { get; set; }
         private readonly ICollectionView observerChambres;
 
 
-        public ReservationViewModel(ReservationService srv,Reservation resa)
+        public ReservationViewModel(ReservationService srv, Reservation resa)
         {
             Reservation = resa;
             Srv = srv;
@@ -145,7 +144,6 @@ namespace ProjetRESOTEL.ViewModels
             Client cli = srvCli.GetClient(IDCli);
             Client = new ClientViewModel(srvCli, cli);
         }
-
         #region "Commandes"
         private RelayCommand _commandeNouvelleChambreReservee;
         public ICommand CommandeNouvelleChambreReservee
@@ -209,7 +207,7 @@ namespace ProjetRESOTEL.ViewModels
 
         private bool CanEnregistrerReservation()
         {
-            if (Client != null && DateDebutSejour !=null  &&  NbNuits > 0)
+            if (Client != null && DateDebutSejour != null && NbNuits > 0)
             {
                 return true;
             }

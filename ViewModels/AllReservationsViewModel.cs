@@ -38,7 +38,6 @@ namespace ProjetRESOTEL.ViewModels
             ListeChoixClient = new ObservableCollection<ClientViewModel>();
             UpdateListChoixClient();
             UpdateListReservation();
-            
             observer = CollectionViewSource.GetDefaultView(ListeReservations);
             observer.CurrentChanged += CurrentReservationChanged;
             observer.MoveCurrentToFirst();
@@ -125,7 +124,6 @@ namespace ProjetRESOTEL.ViewModels
                 return _commandeNouvelleResa;
             }
         }
-
         private void NouvelleResa()
         {
             ReservationViewModel vm = new ReservationViewModel(Srv, new Reservation());

@@ -156,6 +156,7 @@
     <Compile Include="Services\ChambresANettoyerService.cs" />
     <Compile Include="Services\ClientService.cs" />
     <Compile Include="Services\ClientsService.cs" />
+    <Compile Include="Services\OptionService.cs" />
     <Compile Include="Services\RepasService.cs" />
     <Compile Include="Services\ReservationService.cs" />
     <Compile Include="Services\UserService.cs" />
@@ -168,6 +169,7 @@
     <Compile Include="ViewModels\NavigationViewModel.cs" />
     <Compile Include="ViewModels\NewClientVueModel.cs" />
     <Compile Include="ViewModels\NewRepasVueModel.cs" />
+    <Compile Include="ViewModels\OptionVueModel.cs" />
     <Compile Include="ViewModels\RelayCommand.cs" />
     <Compile Include="ViewModels\ReservationViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />

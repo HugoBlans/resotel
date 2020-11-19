@@ -28,6 +28,13 @@ namespace ProjetRESOTEL.ViewModels
                 _ListeDemandeOptions = value;
             }
         }
+        private ObservableCollection<OptionVueModel> _optionVueModels;
+        public ObservableCollection<OptionVueModel> OptionVueModels
+        {
+            get { return _optionVueModels; }
+            set { _optionVueModels = value; }
+        }
+
         private DemandeOption _CurrentSelectionDOption;
         public DemandeOption currentSelection
         {
@@ -103,9 +110,10 @@ namespace ProjetRESOTEL.ViewModels
         {
             Srv = srv;
             ChambreReservee = cr;
-            List<DemandeOption> dOption =srv.getOptionDemande(cr.Id);
-            List<Option> options = srv.GetOptions();
+            OptionService osrv = Services.OptionService.Instance;
+            List<DemandeOption> dOption = osrv.getOptionDemande(cr.Id);
             _ListeDemandeOptions = new ObservableCollection<DemandeOption>();
+            UpdateListeOptions();
             foreach (DemandeOption optionD in dOption) _ListeDemandeOptions.Add(optionD);
         }
 
@@ -144,7 +152,17 @@ namespace ProjetRESOTEL.ViewModels
                 Srv.UpdateChambreReservee(ChambreReservee);
             }
         }
-
+        private void UpdateListeOptions()
+        {
+            OptionService osrv = Services.OptionService.Instance;
+            List<Option> options = osrv.GetOptions();
+            OptionVueModels = new ObservableCollection<OptionVueModel>();
+            foreach (Option option in options)
+            {
+                OptionVueModel optionVue = new OptionVueModel(option);
+                OptionVueModels.Add(optionVue);
+            }
+        }
 
         #endregion
 
