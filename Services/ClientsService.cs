@@ -9,7 +9,7 @@ namespace ProjetRESOTEL.Services
 {
     public class ClientsService
     {
-        public int? AddClient(Client client)
+        public int AddClient(Client client)
         {
             using (Entities.AppContext context = new Entities.AppContext())
             {

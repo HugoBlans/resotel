@@ -1,0 +1,91 @@
+﻿<Window
+    x:Class="ProjetRESOTEL.Views.NewClient"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:ProjetRESOTEL.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="Nouveau Client"
+    Width="400"
+    Height="260"
+    Background="{DynamicResource MaterialDesignPaper}"
+    DataContextChanged="Window_DataContextChanged"
+    FontFamily="{DynamicResource MaterialDesignFont}"
+    ResizeMode="NoResize"
+    TextElement.FontSize="13"
+    TextElement.FontWeight="Regular"
+    TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+    TextOptions.TextFormattingMode="Ideal"
+    TextOptions.TextRenderingMode="Auto"
+    mc:Ignorable="d">
+    <Grid
+        Height="auto"
+        Margin="8,8,8,8"
+        VerticalAlignment="Center">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        <TextBlock
+            Grid.Row="0"
+            Grid.Column="0"
+            FontSize="16"
+            Style="{DynamicResource StyleLabel}"
+            Text="Nom" />
+        <TextBox
+            Grid.Row="0"
+            Grid.Column="1"
+            FontSize="16"
+            Style="{DynamicResource StyleField}"
+            Text="{Binding Nom}" />
+        <TextBlock
+            Grid.Row="1"
+            Grid.Column="0"
+            FontSize="16"
+            Style="{DynamicResource StyleLabel}"
+            Text="Prénom" />
+        <TextBox
+            Grid.Row="1"
+            Grid.Column="1"
+            FontSize="16"
+            Style="{DynamicResource StyleField}"
+            Text="{Binding Prenom}" />
+        <TextBlock
+            Grid.Row="2"
+            Grid.Column="0"
+            FontSize="16"
+            Style="{DynamicResource StyleLabel}"
+            Text="Adresse mail" />
+        <TextBox
+            Grid.Row="2"
+            Grid.Column="1"
+            FontSize="16"
+            Style="{DynamicResource StyleField}"
+            Text="{Binding Email}" />
+        <TextBlock
+            Grid.Row="3"
+            Grid.Column="0"
+            FontSize="16"
+            Style="{DynamicResource StyleLabel}"
+            Text="Téléphone" />
+        <TextBox
+            Grid.Row="3"
+            Grid.Column="1"
+            FontSize="16"
+            Style="{DynamicResource StyleField}"
+            Text="{Binding Telephone}" />
+        <StackPanel
+            Grid.Row="4"
+            Grid.ColumnSpan="2"
+            HorizontalAlignment="Right">
+            <Button Command="{Binding Enregistrer}">Enregistrer</Button>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -121,6 +121,38 @@ namespace ProjetRESOTEL.ViewModels
             Client = cli;
         }
 
+        public event EventHandler ClientAdded;
+
+        private RelayCommand _enregistrer;
+
+
+        public RelayCommand Enregistrer
+        {
+            get
+            {
+                if (_enregistrer == null)
+                {
+                    _enregistrer = new RelayCommand(EnregistrerExcecute, EnregistrerCanExcecute);
+                }
+                return _enregistrer;
+            }
+        }
+
+        private bool EnregistrerCanExcecute()
+        {
+            if (Nom != null && Prenom != null && Email != null && Telephone != null)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        private void EnregistrerExcecute()
+        {
+            ID = Srv.AddClient(Client);
+            ClientAdded?.Invoke(this, EventArgs.Empty);
+        }
+
         public override string ToString()
         {
             return Nom + " " + Prenom;

@@ -178,6 +178,9 @@
     <Compile Include="ViewModels\ReservationViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="ViewModels\WeeklyMealVueModel.cs" />
+    <Compile Include="Views\NewClient.xaml.cs">
+      <DependentUpon>NewClient.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ucListClient.xaml.cs">
       <DependentUpon>ucListClient.xaml</DependentUpon>
     </Compile>
@@ -211,6 +214,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\NewClient.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\ucListClient.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

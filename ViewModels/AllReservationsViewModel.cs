@@ -1,5 +1,6 @@
 ﻿using ProjetRESOTEL.Entities;
 using ProjetRESOTEL.Services;
+using ProjetRESOTEL.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -140,6 +141,35 @@ namespace ProjetRESOTEL.ViewModels
             observer.MoveCurrentTo(vm);
             
             NotifyPropertyChanged("ListeReservations");
+        }
+
+        private RelayCommand _commandeNouveauClient;
+        public ICommand CommandeNouveauClient
+        {
+            get
+            {
+                if (_commandeNouveauClient == null)
+                {
+                    _commandeNouveauClient = new RelayCommand(NouveauClient);
+                }
+                return _commandeNouveauClient;
+            }
+        }
+
+        private void NouveauClient()
+        {
+            NewClient nc = new NewClient();
+            ClientViewModel ncVM = new ClientViewModel(new ClientsService(), new Client());
+            nc.DataContext = ncVM;
+
+            nc.ShowDialog();
+
+            if (ncVM.ID != 0)
+            {
+                ListeChoixClient.Add(ncVM);
+                CurrentReservation.Client = ncVM;
+                NotifyPropertyChanged("CurrentReservationClient");
+            }
         }
         #endregion
     }

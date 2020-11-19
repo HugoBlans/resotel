@@ -108,13 +108,31 @@
                             FontSize="16"
                             Style="{DynamicResource StyleLabel}"
                             Text="Client" />
-                        <ComboBox
-                            Grid.Row="0"
-                            Grid.Column="1"
-                            FontSize="16"
-                            ItemsSource="{Binding ListeChoixClient}"
-                            SelectedItem="{Binding CurrentReservationClient}"
-                            Style="{DynamicResource StyleFieldComboBox}" />
+                        <Grid Grid.Row="0" Grid.Column="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="auto" />
+                            </Grid.ColumnDefinitions>
+                            <ComboBox
+                                Grid.Column="0"
+                                FontSize="16"
+                                ItemsSource="{Binding ListeChoixClient}"
+                                SelectedItem="{Binding CurrentReservationClient}"
+                                Style="{DynamicResource StyleFieldComboBox}" />
+                            <Button
+                                Grid.Column="1"
+                                Margin="0"
+                                Padding="0"
+                                Background="Transparent"
+                                BorderBrush="Transparent"
+                                Command="{Binding CommandeNouveauClient}">
+                                <materialDesign:PackIcon
+                                    Width="24"
+                                    Height="24"
+                                    Foreground="GreenYellow"
+                                    Kind="Add" />
+                            </Button>
+                        </Grid>
                         <TextBlock
                             Grid.Row="1"
                             Grid.Column="0"
@@ -144,15 +162,15 @@
                     <local:UCListeChambreReservees
                         Grid.Row="1"
                         Margin="8"
-                        DataContext="{Binding CurrentReservation}"/>
+                        DataContext="{Binding CurrentReservation}" />
 
-                        
+
                     <StackPanel
                         Grid.Row="3"
                         HorizontalAlignment="Right"
                         Orientation="Horizontal">
                         <Label>Prix :</Label>
-                        <TextBlock Text="{Binding CurrentReservation.Prix}"></TextBlock>
+                        <TextBlock Text="{Binding CurrentReservation.Prix}" />
                         <Button Margin="0,0,8,0" Command="{Binding CurrentReservation.CommandeEnregistrerReservation}">Enregister</Button>
                         <Button Margin="0,0,8,0" Command="{Binding CurrentReservation.CommandeSupprimerReservation}">Supprimer</Button>
                     </StackPanel>
