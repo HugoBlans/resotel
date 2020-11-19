@@ -63,5 +63,24 @@ namespace ProjetRESOTEL.Services
                 context.DemandeOptions.Add(demandeOption);
             }
         }
+        public void RemoveOption(int Id)
+        {
+            using (Entities.AppContext context = new Entities.AppContext())
+            {
+                try
+                {
+                    DemandeOption optionToRemove = context.DemandeOptions.Find(Id);
+                    if (optionToRemove != null)
+                    {
+                        context.DemandeOptions.Remove(optionToRemove);
+                        context.SaveChanges();
+                    }
+                }
+                catch (Exception e)
+                {
+                    return;
+                }
+            }
+        }
     }
 }

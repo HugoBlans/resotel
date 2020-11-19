@@ -106,12 +106,13 @@ namespace ProjetRESOTEL.ViewModels
             ChambreReservee = cr;
             OptionService osrv = Services.OptionService.Instance;
             List<DemandeOption> dOption = osrv.getOptionDemande(cr.Id);
-            _ListeDemandeOptions = new ObservableCollection<OptionDemandeVueModel>();
+            ListeDemandeOptions = new ObservableCollection<OptionDemandeVueModel>();
             UpdateListeOptions();
             foreach (DemandeOption optionD in dOption)
             {
                 OptionDemandeVueModel oDvm = new OptionDemandeVueModel(optionD);
-                _ListeDemandeOptions.Add(oDvm);
+                oDvm.suppresion += SupprimerOption;
+                ListeDemandeOptions.Add(oDvm);
             }
         }
 
@@ -170,9 +171,18 @@ namespace ProjetRESOTEL.ViewModels
             dOpt.NbJour = 0;
             dOpt.ChambreReservee = ChambreReservee;
             dOpt.IdChambreReservee = ChambreReservee.Id;
-            ListeDemandeOptions.Add(new OptionDemandeVueModel(dOpt));
+            OptionDemandeVueModel optVM = new OptionDemandeVueModel(dOpt);
+            optVM.suppresion += SupprimerOption;
+            ListeDemandeOptions.Add(optVM);
             NotifyPropertyChanged();
         }
         #endregion
+        private void SupprimerOption(object sender,EventArgs args)
+        {
+            if(sender != null)
+            {
+                ListeDemandeOptions.Remove(sender as OptionDemandeVueModel);
+            }
+        }
     }
 }

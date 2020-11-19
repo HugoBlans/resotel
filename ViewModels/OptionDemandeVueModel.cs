@@ -122,6 +122,23 @@ namespace ProjetRESOTEL.ViewModels
             if (Int32.TryParse(value, out nbSupp))
                 Jour += nbSupp;
         }
+
+        public ICommand RemoveOption
+        {
+            get
+            {
+                return new RelayCommand(removeOption);
+            }
+        }
+        public EventHandler suppresion;
+        private void removeOption()
+        {
+            if(_opt != null)
+            {
+                service.RemoveOption(_opt.IdOption);
+            }
+            suppresion?.Invoke(this, EventArgs.Empty);
+        }
     }
 
 }
