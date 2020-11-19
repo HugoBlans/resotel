@@ -17,7 +17,7 @@ namespace ProjetRESOTEL.ViewModels
             get { return _opt; }
             set { _opt = value; NotifyPropertyChanged(); }
         }
-        public OptionVueModel( Option opt)
+        public OptionVueModel(Option opt)
         {
             service = Services.OptionService.Instance;
             _opt = opt;

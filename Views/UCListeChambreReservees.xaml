@@ -68,25 +68,27 @@
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*" />
                                     <ColumnDefinition Width="auto" />
+                                    <ColumnDefinition Width="auto" />
                                 </Grid.ColumnDefinitions>
-                                <ComboBox Name="CBOptions" Grid.Column="0" ItemsSource="{Binding OptionVueModels}"/>
-                                <Button Grid.Column="1" Margin="0" Padding="0" Background="Transparent" BorderBrush="Transparent" Click="Button_Click">
-                                    <materialDesign:PackIcon Width="24" Height="24" Foreground="GreenYellow" Kind="Add" />
+                                <TextBlock Text="Options" Grid.Column="0"/>
+                                <TextBlock Grid.Column="1" Text="Nombre de jour"/>
+                                <Button Grid.Column="2" Margin="0" Padding="0" Background="Transparent" BorderBrush="Transparent" Command="{Binding AddOption}">
+                                    <materialDesign:PackIcon Width="24" Height="24" Foreground="GreenYellow" Kind="Add"/>
                                 </Button>
                             </Grid>
                         </GroupBox.Header>
-                        <DataGrid Grid.Row="0" Margin="8" AutoGenerateColumns="False" HorizontalGridLinesBrush="Azure" IsSynchronizedWithCurrentItem="True" ItemsSource="{Binding Path=ListeDemandeOptions}">
+                        <DataGrid Grid.Row="0" Margin="8" AutoGenerateColumns="False" HorizontalGridLinesBrush="Azure" IsSynchronizedWithCurrentItem="True" ItemsSource="{Binding ListeDemandeOptions}">
                             <DataGrid.Columns>
-                                <DataGridTextColumn Binding="{Binding Option.Designation}"/>
-                                <DataGridTextColumn Binding="{Binding NbJour}"/>
                                 <DataGridTemplateColumn>
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
                                             <StackPanel Orientation="Horizontal">
-                                                <Button Margin="0" Padding="0" Background="Transparent" BorderBrush="Transparent" Command="{Binding DecrementJour}" Foreground="Red">
+                                                <ComboBox Name="CBOptions" ItemsSource="{Binding OptionVueModels}" SelectedItem="{Binding CurrentOptionVm}"/>
+                                                <TextBlock Text="{Binding Jour}"/>
+                                                <Button Margin="0" Padding="0" Background="Transparent" BorderBrush="Transparent" Command="{Binding AddJour}" CommandParameter="-1" Foreground="Red">
                                                     <materialDesign:PackIcon Width="24" Height="24" Kind="Remove"/>
                                                 </Button>
-                                                <Button Margin="0" Padding="0" Background="Transparent" BorderBrush="Transparent" Command="{Binding IncrementJour}" Foreground="Green">
+                                                <Button Margin="0" Padding="0" Background="Transparent" BorderBrush="Transparent" Command="{Binding AddJour}" CommandParameter="1" Foreground="Green">
                                                     <materialDesign:PackIcon Width="24" Height="24" Kind="Add"/>
                                                 </Button>
                                                 <Button Margin="0" Padding="0" Background="Transparent" BorderBrush="Transparent" Command="{Binding RemoveOption}" Foreground="DarkRed">

@@ -16,8 +16,8 @@ namespace ProjetRESOTEL.ViewModels
 
         #region "Propriétés de la table"
         private ChambreReservee _chambreReservee;
-        private ObservableCollection<DemandeOption> _ListeDemandeOptions;
-        public ObservableCollection<DemandeOption> ListeDemandeOptions
+        private ObservableCollection<OptionDemandeVueModel> _ListeDemandeOptions;
+        public ObservableCollection<OptionDemandeVueModel> ListeDemandeOptions
         {
             get
             {
@@ -28,23 +28,17 @@ namespace ProjetRESOTEL.ViewModels
                 _ListeDemandeOptions = value;
             }
         }
-        private ObservableCollection<OptionVueModel> _optionVueModels;
-        public ObservableCollection<OptionVueModel> OptionVueModels
-        {
-            get { return _optionVueModels; }
-            set { _optionVueModels = value; }
-        }
 
-        private DemandeOption _CurrentSelectionDOption;
-        public DemandeOption currentSelection
+        private OptionDemandeVueModel _CurrentSelectionOptionDem;
+        public OptionDemandeVueModel CurrentSelectionOption
         {
             get
             {
-                return _CurrentSelectionDOption;
+                return _CurrentSelectionOptionDem;
             }
             set
             {
-                _CurrentSelectionDOption = value;
+                _CurrentSelectionOptionDem = value;
                 NotifyPropertyChanged();
             }
         }
@@ -112,9 +106,13 @@ namespace ProjetRESOTEL.ViewModels
             ChambreReservee = cr;
             OptionService osrv = Services.OptionService.Instance;
             List<DemandeOption> dOption = osrv.getOptionDemande(cr.Id);
-            _ListeDemandeOptions = new ObservableCollection<DemandeOption>();
+            _ListeDemandeOptions = new ObservableCollection<OptionDemandeVueModel>();
             UpdateListeOptions();
-            foreach (DemandeOption optionD in dOption) _ListeDemandeOptions.Add(optionD);
+            foreach (DemandeOption optionD in dOption)
+            {
+                OptionDemandeVueModel oDvm = new OptionDemandeVueModel(optionD);
+                _ListeDemandeOptions.Add(oDvm);
+            }
         }
 
         #region "Commandes
@@ -155,16 +153,26 @@ namespace ProjetRESOTEL.ViewModels
         private void UpdateListeOptions()
         {
             OptionService osrv = Services.OptionService.Instance;
-            List<Option> options = osrv.GetOptions();
-            OptionVueModels = new ObservableCollection<OptionVueModel>();
-            foreach (Option option in options)
-            {
-                OptionVueModel optionVue = new OptionVueModel(option);
-                OptionVueModels.Add(optionVue);
-            }
         }
 
         #endregion
-
+        #region "Gestion des options"
+        public ICommand AddOption
+        {
+            get
+            {
+                return new RelayCommand(addOption);
+            }
+        }
+        private void addOption()
+        {
+            DemandeOption dOpt = new DemandeOption();
+            dOpt.NbJour = 0;
+            dOpt.ChambreReservee = ChambreReservee;
+            dOpt.IdChambreReservee = ChambreReservee.Id;
+            ListeDemandeOptions.Add(new OptionDemandeVueModel(dOpt));
+            NotifyPropertyChanged();
+        }
+        #endregion
     }
 }

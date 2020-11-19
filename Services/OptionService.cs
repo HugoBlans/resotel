@@ -35,7 +35,6 @@ namespace ProjetRESOTEL.Services
             }
             return options;
         }
-
         public List<DemandeOption> getOptionDemande(int chambreID)
         {
             List<DemandeOption> dOptions = new List<DemandeOption>();
@@ -50,6 +49,19 @@ namespace ProjetRESOTEL.Services
                 }
             }
             return dOptions;
+        }
+        public void AddDemandeOption(Option opt, ChambreReservee chambre)
+        {
+            using (Entities.AppContext context = new Entities.AppContext())
+            {
+                DemandeOption demandeOption = new DemandeOption();
+                demandeOption.ChambreReservee = chambre;
+                demandeOption.IdChambreReservee = chambre.Id;
+                demandeOption.NbJour = 0;
+                demandeOption.Option = opt;
+                demandeOption.IdOption = opt.NumOption;
+                context.DemandeOptions.Add(demandeOption);
+            }
         }
     }
 }
