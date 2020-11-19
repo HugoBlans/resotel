@@ -88,7 +88,14 @@ namespace ProjetRESOTEL.ViewModels
 
         public ClientViewModel CurrentReservationClient
         {
-            get { return CurrentReservation.Client; }
+            get 
+            {
+                if (CurrentReservation != null)
+                {
+                    return CurrentReservation.Client;
+                }
+                return null;
+            }
             set 
             {
                 if (CurrentReservation != null)
