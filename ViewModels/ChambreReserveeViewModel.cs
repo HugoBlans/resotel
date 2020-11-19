@@ -3,9 +3,11 @@ using ProjetRESOTEL.Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Data;
 using System.Windows.Input;
 
 namespace ProjetRESOTEL.ViewModels
@@ -104,6 +106,13 @@ namespace ProjetRESOTEL.ViewModels
         {
             Srv = srv;
             ChambreReservee = cr;
+            UpdateListeChambresHotel();
+            observerChambre = CollectionViewSource.GetDefaultView(ListeChambresHotel);
+            observerChambre.CurrentChanged += CurrentReservationChanged;
+            if (NumeroChambre != 0)
+            {
+                observerChambre.MoveCurrentTo((from c in ListeChambresHotel where c.Numero == NumeroChambre select c).Single<ChambreViewModel>());
+            }
             OptionService osrv = Services.OptionService.Instance;
             List<DemandeOption> dOption = osrv.getOptionDemande(cr.Id);
             ListeDemandeOptions = new ObservableCollection<OptionDemandeVueModel>();
@@ -180,6 +189,39 @@ namespace ProjetRESOTEL.ViewModels
             NotifyPropertyChanged();
         }
         #endregion
+
+        private ObservableCollection<ChambreViewModel> _listeChambresHotel;
+
+        public ObservableCollection<ChambreViewModel> ListeChambresHotel
+        {
+            get { return _listeChambresHotel; }
+            set { _listeChambresHotel = value; }
+        }
+
+        private readonly ICollectionView observerChambre;
+
+
+        private void UpdateListeChambresHotel()
+        {
+            ListeChambresHotel = new ObservableCollection<ChambreViewModel>();
+            ChambreService srv = new ChambreService();
+            List<Chambre> AllChambres = srv.GetAllChambres();
+
+            foreach (Chambre c in AllChambres)
+            {
+                ChambreViewModel newChambre = new ChambreViewModel(srv, c);
+                ListeChambresHotel.Add(newChambre);
+            }
+        }
+
+        private void CurrentReservationChanged(object sender, EventArgs e)
+        {
+            if (observerChambre.CurrentItem != null)
+            {
+                ChambreViewModel c = observerChambre.CurrentItem as ChambreViewModel;
+                NumeroChambre = c.Numero;
+            }
+        }       
         private void SupprimerOption(object sender, EventArgs args)
         {
             if (sender != null)

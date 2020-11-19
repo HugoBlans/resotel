@@ -40,7 +40,13 @@
             SelectionMode="Single">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding NbPersonne}" Header="Nombre de personnes" />
-                <DataGridTextColumn Binding="{Binding NumeroChambre}" Header="Numero de chambre" />
+                <DataGridTemplateColumn Header="Numero de Chambre">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ComboBox IsSynchronizedWithCurrentItem="True" ItemsSource="{Binding ListeChambresHotel}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
@@ -70,29 +76,77 @@
                                     <ColumnDefinition Width="auto" />
                                     <ColumnDefinition Width="auto" />
                                 </Grid.ColumnDefinitions>
-                                <TextBlock Text="Options" Grid.Column="0"/>
-                                <TextBlock Grid.Column="1" Text="Nombre de jour"/>
-                                <Button Grid.Column="2" Margin="0" Padding="0" Background="Transparent" BorderBrush="Transparent" Command="{Binding AddOption}">
-                                    <materialDesign:PackIcon Width="24" Height="24" Foreground="GreenYellow" Kind="Add"/>
+                                <TextBlock Grid.Column="0" Text="Options" />
+                                <TextBlock Grid.Column="1" Text="Nombre de jour" />
+                                <Button
+                                    Grid.Column="2"
+                                    Margin="0"
+                                    Padding="0"
+                                    Background="Transparent"
+                                    BorderBrush="Transparent"
+                                    Command="{Binding AddOption}">
+                                    <materialDesign:PackIcon
+                                        Width="24"
+                                        Height="24"
+                                        Foreground="GreenYellow"
+                                        Kind="Add" />
                                 </Button>
                             </Grid>
                         </GroupBox.Header>
-                        <DataGrid Grid.Row="0" Margin="8" AutoGenerateColumns="False" HorizontalGridLinesBrush="Azure" IsSynchronizedWithCurrentItem="True" ItemsSource="{Binding ListeDemandeOptions}">
+                        <DataGrid
+                            Grid.Row="0"
+                            Margin="8"
+                            AutoGenerateColumns="False"
+                            HorizontalGridLinesBrush="Azure"
+                            IsSynchronizedWithCurrentItem="True"
+                            ItemsSource="{Binding ListeDemandeOptions}">
                             <DataGrid.Columns>
                                 <DataGridTemplateColumn>
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
                                             <StackPanel Orientation="Horizontal">
-                                                <ComboBox Name="CBOptions" ItemsSource="{Binding OptionVueModels}" IsSynchronizedWithCurrentItem="True"/>
-                                                <TextBlock Text="{Binding Jour}"/>
-                                                <Button Margin="0" Padding="0" Background="Transparent" BorderBrush="Transparent" Command="{Binding AddJour}" CommandParameter="-1" Foreground="Red">
-                                                    <materialDesign:PackIcon Width="24" Height="24" Kind="Remove"/>
+                                                <ComboBox
+                                                    Name="CBOptions"
+                                                    IsSynchronizedWithCurrentItem="True"
+                                                    ItemsSource="{Binding OptionVueModels}" />
+                                                <TextBlock Text="{Binding Jour}" />
+                                                <Button
+                                                    Margin="0"
+                                                    Padding="0"
+                                                    Background="Transparent"
+                                                    BorderBrush="Transparent"
+                                                    Command="{Binding AddJour}"
+                                                    CommandParameter="-1"
+                                                    Foreground="Red">
+                                                    <materialDesign:PackIcon
+                                                        Width="24"
+                                                        Height="24"
+                                                        Kind="Remove" />
                                                 </Button>
-                                                <Button Margin="0" Padding="0" Background="Transparent" BorderBrush="Transparent" Command="{Binding AddJour}" CommandParameter="1" Foreground="Green">
-                                                    <materialDesign:PackIcon Width="24" Height="24" Kind="Add"/>
+                                                <Button
+                                                    Margin="0"
+                                                    Padding="0"
+                                                    Background="Transparent"
+                                                    BorderBrush="Transparent"
+                                                    Command="{Binding AddJour}"
+                                                    CommandParameter="1"
+                                                    Foreground="Green">
+                                                    <materialDesign:PackIcon
+                                                        Width="24"
+                                                        Height="24"
+                                                        Kind="Add" />
                                                 </Button>
-                                                <Button Margin="0" Padding="0" Background="Transparent" BorderBrush="Transparent" Command="{Binding RemoveOption}" Foreground="DarkRed">
-                                                    <materialDesign:PackIcon Width="24" Height="24" Kind="Trash"/>
+                                                <Button
+                                                    Margin="0"
+                                                    Padding="0"
+                                                    Background="Transparent"
+                                                    BorderBrush="Transparent"
+                                                    Command="{Binding RemoveOption}"
+                                                    Foreground="DarkRed">
+                                                    <materialDesign:PackIcon
+                                                        Width="24"
+                                                        Height="24"
+                                                        Kind="Trash" />
                                                 </Button>
                                             </StackPanel>
                                         </DataTemplate>

@@ -155,6 +155,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Services\ChambreReserveeService.cs" />
     <Compile Include="Services\ChambresANettoyerService.cs" />
+    <Compile Include="Services\ChambreService.cs" />
     <Compile Include="Services\ClientService.cs" />
     <Compile Include="Services\ClientsService.cs" />
     <Compile Include="Services\OptionService.cs" />
@@ -165,6 +166,7 @@
     <Compile Include="ViewModels\AllReservationsViewModel.cs" />
     <Compile Include="ViewModels\ChambreANettoyerViewModel.cs" />
     <Compile Include="ViewModels\ChambreReserveeViewModel.cs" />
+    <Compile Include="ViewModels\ChambreViewModel.cs" />
     <Compile Include="ViewModels\ClientViewModel.cs" />
     <Compile Include="ViewModels\ListClientVueModel.cs" />
     <Compile Include="ViewModels\NavigationViewModel.cs" />
