@@ -75,18 +75,28 @@
                                 </Button>
                             </Grid>
                         </GroupBox.Header>
-                        <DataGrid Grid.Row="0" Margin="8" AutoGenerateColumns="False" HorizontalGridLinesBrush="Azure" IsSynchronizedWithCurrentItem="True" ItemsSource="{Binding ListeDemandeOptions}">
-                            <DataGridTextColumn Binding="{Binding Option.Designation}"/>
-                            <DataGridTextColumn Binding="{Binding NbJour}"/>
-                            <Button Margin="0" Padding="0" Background="Transparent" BorderBrush="Transparent" Command="{Binding DecrementJour}" Foreground="Red">
-                                <materialDesign:PackIcon Width="24" Height="24" Kind="Remove"/>
-                            </Button>
-                            <Button Margin="0" Padding="0" Background="Transparent" BorderBrush="Transparent" Command="{Binding IncrementJour}" Foreground="Green">
-                                <materialDesign:PackIcon Width="24" Height="24" Kind="Add"/>
-                            </Button>
-                            <Button Margin="0" Padding="0" Background="Transparent" BorderBrush="Transparent" Command="{Binding RemoveOption}" Foreground="DarkRed">
-                                <materialDesign:PackIcon Width="24" Height="24" Kind="Trash"/>
-                            </Button>
+                        <DataGrid Grid.Row="0" Margin="8" AutoGenerateColumns="False" HorizontalGridLinesBrush="Azure" IsSynchronizedWithCurrentItem="True" ItemsSource="{Binding Path=ListeDemandeOptions}">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Binding="{Binding Option.Designation}"/>
+                                <DataGridTextColumn Binding="{Binding NbJour}"/>
+                                <DataGridTemplateColumn>
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal">
+                                                <Button Margin="0" Padding="0" Background="Transparent" BorderBrush="Transparent" Command="{Binding DecrementJour}" Foreground="Red">
+                                                    <materialDesign:PackIcon Width="24" Height="24" Kind="Remove"/>
+                                                </Button>
+                                                <Button Margin="0" Padding="0" Background="Transparent" BorderBrush="Transparent" Command="{Binding IncrementJour}" Foreground="Green">
+                                                    <materialDesign:PackIcon Width="24" Height="24" Kind="Add"/>
+                                                </Button>
+                                                <Button Margin="0" Padding="0" Background="Transparent" BorderBrush="Transparent" Command="{Binding RemoveOption}" Foreground="DarkRed">
+                                                    <materialDesign:PackIcon Width="24" Height="24" Kind="Trash"/>
+                                                </Button>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                            </DataGrid.Columns>
                         </DataGrid>
                     </GroupBox>
                 </DataTemplate>
