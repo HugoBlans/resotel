@@ -128,6 +128,7 @@
     <Compile Include="Entities\Reservation.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Entities\UserContext.cs" />
+    <Compile Include="Log.cs" />
     <Compile Include="Migrations\202009240656062_InitialCreate.cs" />
     <Compile Include="Migrations\202009240656062_InitialCreate.Designer.cs">
       <DependentUpon>202009240656062_InitialCreate.cs</DependentUpon>

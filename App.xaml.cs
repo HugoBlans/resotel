@@ -19,24 +19,36 @@ namespace ProjetRESOTEL
 
             var principal = new WindowsPrincipal(WindowsIdentity.GetCurrent());
             var domaine = System.Environment.UserDomainName;
-
+            // For test only
+            App.Current.Properties["isStandardiste"] = true;
+            App.Current.Properties["isHygiene"] = true;
+            App.Current.Properties["isRestauration"] = true;
             if (principal.IsInRole(domaine + "\\ResotelHote"))
             {
                 App.Current.Properties["isStandardiste"] = true;
                 App.Current.Properties["isHygiene"] = true;
                 App.Current.Properties["isRestauration"] = true;
             }
+            else if (principal.IsInRole(domaine + "\\ResotelStandardiste"))
+            {
+                App.Current.Properties["isStandardiste"] = true;
+            }
+            else if (principal.IsInRole(domaine + "\\ResotelHygiene"))
+            {
+                App.Current.Properties["isHygiene"] = true;
+            }
+            else if (principal.IsInRole(domaine + "\\ResotelRestauration"))
+            {
+                App.Current.Properties["isRestauration"] = true;
+            }
             else
             {
-                App.Current.Properties["isStandardiste"] = principal.IsInRole(domaine + "\\ResotelStandardiste");
-                App.Current.Properties["isHygiene"] = principal.IsInRole(domaine + "\\ResotelHygiene");
-                App.Current.Properties["isRestauration"] = principal.IsInRole(domaine + "\\ResotelRestauration");
+                Log.Error(this.GetType(), "Utilisateur sans rôle associé");
+                //MessageBox.Show("L'utilisateur windows courrant n'a pas les attributions nécessaires pour éxécuter l'application.", "Utilisateur Inconnu",MessageBoxButton.OK, MessageBoxImage.Error);
+                //App.Current.Shutdown();
             }
 
-            // For test only
-            App.Current.Properties["isStandardiste"] = true;
-            App.Current.Properties["isHygiene"] = true;
-            App.Current.Properties["isRestauration"] = true;
+
         }
     }
 }
