@@ -2,6 +2,7 @@
     x:Class="ProjetRESOTEL.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Converters="clr-namespace:ProjetRESOTEL.Converters"
     xmlns:Views="clr-namespace:ProjetRESOTEL.Views"
     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:wpfTool="clr-namespace:Xceed.Wpf.Toolkit;assembly=Xceed.Wpf.Toolkit"
@@ -18,6 +19,9 @@
     TextOptions.TextFormattingMode="Ideal"
     TextOptions.TextRenderingMode="Auto"
     WindowState="Normal">
+    <Window.Resources>
+        <Converters:RoleToVisibilityConverter x:Key="RoleToVisibilityConverter" />
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -25,7 +29,10 @@
         </Grid.RowDefinitions>
 
         <Menu Grid.Row="0">
-            <MenuItem Command="{Binding Navigation}" CommandParameter="clients">
+            <MenuItem
+                Command="{Binding Navigation}"
+                CommandParameter="clients"
+                Visibility="{Binding Source={x:Static Application.Current}, Path=Properties[isStandardiste], Converter={StaticResource RoleToVisibilityConverter}}">
                 <MenuItem.Header>
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="AccountBox" />
@@ -33,7 +40,10 @@
                     </StackPanel>
                 </MenuItem.Header>
             </MenuItem>
-            <MenuItem Command="{Binding Navigation}" CommandParameter="réservations">
+            <MenuItem
+                Command="{Binding Navigation}"
+                CommandParameter="réservations"
+                Visibility="{Binding Source={x:Static Application.Current}, Path=Properties[isStandardiste], Converter={StaticResource RoleToVisibilityConverter}}">
                 <MenuItem.Header>
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="LocalActivity" />
@@ -41,7 +51,7 @@
                     </StackPanel>
                 </MenuItem.Header>
             </MenuItem>
-            <MenuItem>
+            <MenuItem Visibility="{Binding Source={x:Static Application.Current}, Path=Properties[isRestauration], Converter={StaticResource RoleToVisibilityConverter}}">
                 <MenuItem.Header>
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="EventNote" />
@@ -71,7 +81,10 @@
                     </MenuItem.Header>
                 </MenuItem>
             </MenuItem>
-            <MenuItem Command="{Binding Navigation}" CommandParameter="ménages">
+            <MenuItem
+                Command="{Binding Navigation}"
+                CommandParameter="ménages"
+                Visibility="{Binding Source={x:Static Application.Current}, Path=Properties[isHygiene], Converter={StaticResource RoleToVisibilityConverter}}">
                 <MenuItem.Header>
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="Broom" />
