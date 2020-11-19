@@ -18,16 +18,20 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <TextBox Grid.Row="1"
+
+        <StackPanel Grid.Row="1" Background="#03A9F4" >
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Padding="5">Rechercher un client</TextBlock>
+        </StackPanel>
+        <TextBox Grid.Row="2"
              Text="{Binding TexteRechercher, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
              CharacterCasing="Upper" ToolTip="Rechercher un client"
              Background="{Binding TexteRechercherNoMatch}"/>
-
         <ListBox
-            Grid.Row="2"
+            Grid.Row="3"
             HorizontalAlignment="Stretch"
             IsSynchronizedWithCurrentItem="True"
             ItemsSource="{Binding ListeClients}">
@@ -49,8 +53,10 @@
         </Button>
         <GridSplitter Grid.Row="1" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
                       Background="Gray" Width="3" Grid.RowSpan="3" />
-
-        <Views:ucNewClient Grid.Row="1" Grid.RowSpan="3" Grid.Column="3" 
+        <StackPanel Grid.Row="1" Grid.Column="3" Background="#03A9F4">
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Padding="5">Fiche client</TextBlock>
+        </StackPanel>
+        <Views:ucNewClient Grid.Row="2" Grid.RowSpan="3" Grid.Column="3" 
                          DataContext="{Binding ClientSelected}"/>
     </Grid>
 </UserControl>

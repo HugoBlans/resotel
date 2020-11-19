@@ -61,7 +61,7 @@ namespace ProjetRESOTEL.ViewModels
         private void Previous()
         {
             _allMeal.Clear();
-            curDate = curDate.AddDays(-1);
+            curDate = curDate.AddDays(-7);
             _allMeal = serv.chargerRepasHebdo(curDate);
             NotifyPropertyChanged("allMeal");
         }
@@ -75,7 +75,7 @@ namespace ProjetRESOTEL.ViewModels
         private void Next()
         {
             _allMeal.Clear();
-            curDate = curDate.AddDays(1);
+            curDate = curDate.AddDays(7);
             _allMeal = serv.chargerRepasHebdo(curDate);
             NotifyPropertyChanged("allMeal");
         }
