@@ -153,7 +153,7 @@ namespace ProjetRESOTEL.ViewModels
         }
         private void EnregistrerOption()
         {
-            foreach(OptionDemandeVueModel demandeVueModel in ListeDemandeOptions)
+            foreach (OptionDemandeVueModel demandeVueModel in ListeDemandeOptions)
             {
                 demandeVueModel.Enregistrer();
             }
@@ -180,12 +180,26 @@ namespace ProjetRESOTEL.ViewModels
             NotifyPropertyChanged();
         }
         #endregion
-        private void SupprimerOption(object sender,EventArgs args)
+        private void SupprimerOption(object sender, EventArgs args)
         {
-            if(sender != null)
+            if (sender != null)
             {
                 ListeDemandeOptions.Remove(sender as OptionDemandeVueModel);
             }
+        }
+        public double UpdatePrix(int nbNuits)
+        {
+            double prix = 0;
+            foreach (OptionDemandeVueModel option in ListeDemandeOptions)
+            {
+                prix += option.UpdatePrix();
+            }
+            int nbDizaine = nbNuits / 10;
+            int reste = nbNuits % 10;
+            int nbCinq = reste / 5;
+            reste = nbNuits % 5;
+            prix += Srv.calculPrix(ChambreReservee.Numero, nbDizaine, nbCinq, reste);
+            return prix;
         }
     }
 }

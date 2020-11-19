@@ -92,18 +92,28 @@ namespace ProjetRESOTEL.Services
         }
         public bool CheckData(DemandeOption option)
         {
-            using (Entities.AppContext context= new Entities.AppContext())
+            using (Entities.AppContext context = new Entities.AppContext())
             {
                 try
                 {
                     DemandeOption demandeOption = context.DemandeOptions.Find(option);
                     return true;
                 }
-                catch(Exception e)
+                catch (Exception e)
                 {
                     return false;
                 }
             }
+        }
+        public double calculPrix(int idOption, int nbJour)
+        {
+            double TmpPrix = 0;
+            using (Entities.AppContext context = new Entities.AppContext())
+            {
+                Option option = context.Options.Find(idOption);
+                TmpPrix = nbJour * (double)option.Prix;
+            }
+            return TmpPrix;
         }
     }
 }

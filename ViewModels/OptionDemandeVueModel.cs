@@ -151,5 +151,9 @@ namespace ProjetRESOTEL.ViewModels
                 }
             }
         }
+        public double UpdatePrix()
+        {
+            return service.calculPrix(OptionId, Jour);
+        }
     }
 }

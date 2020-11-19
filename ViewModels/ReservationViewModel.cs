@@ -86,7 +86,17 @@ namespace ProjetRESOTEL.ViewModels
             get { return _client; }
             set { _client = value; NotifyPropertyChanged(); }
         }
-
+        public double Prix
+        {
+            get { return UpdatePrix(); }
+        }
+        public double UpdatePrix()
+        {
+            double prixTemp = 0;
+            foreach (ChambreReserveeViewModel crVM in ListeChambreReservees)
+                prixTemp += crVM.UpdatePrix(NbNuits);
+            return prixTemp;
+        }
         //liaison table chambres réservées associées
         public ObservableCollection<ChambreReserveeViewModel> ListeChambreReservees { get; set; }
         private readonly ICollectionView observerChambres;
@@ -232,6 +242,7 @@ namespace ProjetRESOTEL.ViewModels
 
                 EnregistrerChambresReservees();
                 ReservationEnregistree?.Invoke(this, EventArgs.Empty);
+                NotifyPropertyChanged("Prix");
             }
 
         }

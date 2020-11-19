@@ -66,5 +66,40 @@ namespace ProjetRESOTEL.Services
                 }
             }
         }
+        public double calculPrix(int idChambre, int nbDizaine, int nbCinq, int reste)
+        {
+            double prix = 0;
+            using (Entities.AppContext context = new Entities.AppContext())
+            {
+                ChambreReservee crToRemove = context.ChambreReservees.Find(idChambre);
+                if(crToRemove != null)
+                {
+                    Chambre chambre = context.Chambres.Find(crToRemove.Numero);
+                    if(chambre != null)
+                    {
+                        ICollection<Prix> lstPrix = chambre.LstPrix;
+                        if(lstPrix != null)
+                        {
+                            foreach (Prix prix1 in lstPrix)
+                            {
+                                switch (prix1.NbNuit)
+                                {
+                                    case 1:
+                                        prix += reste * (double)prix1.prix;
+                                        break;
+                                    case 5:
+                                        prix += nbCinq * (double)prix1.prix;
+                                        break;
+                                    case 10:
+                                        prix += nbDizaine * (double)prix1.prix;
+                                        break;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            return prix;
+        }
     }
 }
