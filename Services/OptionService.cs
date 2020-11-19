@@ -50,20 +50,28 @@ namespace ProjetRESOTEL.Services
             }
             return dOptions;
         }
-        public void AddDemandeOption(Option opt, ChambreReservee chambre)
+        public void AddDemandeOption(DemandeOption opt)
         {
             using (Entities.AppContext context = new Entities.AppContext())
             {
-                DemandeOption demandeOption = new DemandeOption();
-                demandeOption.ChambreReservee = chambre;
-                demandeOption.IdChambreReservee = chambre.Id;
-                demandeOption.NbJour = 0;
-                demandeOption.Option = opt;
-                demandeOption.IdOption = opt.NumOption;
-                context.DemandeOptions.Add(demandeOption);
+                context.DemandeOptions.Add(opt);
+                context.SaveChanges();
             }
         }
-        public void RemoveOption(int Id)
+        public void UpdateDemandeOption(DemandeOption opt)
+        {
+            using (Entities.AppContext context = new Entities.AppContext())
+            {
+                DemandeOption optionToSave = context.DemandeOptions.Find(opt);
+                optionToSave.Option = opt.Option;
+                optionToSave.IdOption = opt.IdOption;
+                optionToSave.ChambreReservee = opt.ChambreReservee;
+                optionToSave.IdChambreReservee = opt.IdChambreReservee;
+                optionToSave.NbJour = opt.NbJour;
+                context.SaveChanges();
+            }
+        }
+        public void RemoveOption(DemandeOption Id)
         {
             using (Entities.AppContext context = new Entities.AppContext())
             {
@@ -79,6 +87,21 @@ namespace ProjetRESOTEL.Services
                 catch (Exception e)
                 {
                     return;
+                }
+            }
+        }
+        public bool CheckData(DemandeOption option)
+        {
+            using (Entities.AppContext context= new Entities.AppContext())
+            {
+                try
+                {
+                    DemandeOption demandeOption = context.DemandeOptions.Find(option);
+                    return true;
+                }
+                catch(Exception e)
+                {
+                    return false;
                 }
             }
         }

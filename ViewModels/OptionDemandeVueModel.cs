@@ -3,9 +3,11 @@ using ProjetRESOTEL.Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Data;
 using System.Windows.Input;
 
 namespace ProjetRESOTEL.ViewModels
@@ -25,21 +27,14 @@ namespace ProjetRESOTEL.ViewModels
             get { return _optionVueModels; }
             set { _optionVueModels = value; }
         }
-        private OptionVueModel _currentOptionVueModel;
-        public OptionVueModel CurrentOptionVm
+        private void CurrentChangedOption(Object sender, EventArgs e)
         {
-            get
-            {
-                return _currentOptionVueModel;
-            }
-            set
-            {
-                _currentOptionVueModel = value;
-                Opt.Option = value.opt;
-                Opt.IdOption = value.opt.NumOption;
-                NotifyPropertyChanged();
-            }
+            OptionVueModel value = observerOption.CurrentItem as OptionVueModel;
+            Opt.Option = value.opt;
+            Opt.IdOption = value.opt.NumOption;
         }
+
+        private readonly ICollectionView observerOption;
         public OptionDemandeVueModel(DemandeOption dOpt)
         {
             service = Services.OptionService.Instance;
@@ -51,12 +46,14 @@ namespace ProjetRESOTEL.ViewModels
                 OptionVueModel optionVue = new OptionVueModel(option);
                 OptionVueModels.Add(optionVue);
             }
+            observerOption = CollectionViewSource.GetDefaultView(OptionVueModels);
+            observerOption.CurrentChanged += CurrentChangedOption;
         }
         public int idCHambreR
         {
             get
             {
-                return _opt.IdChambreReservee;
+                return Opt.IdChambreReservee;
             }
             set
             {
@@ -67,7 +64,7 @@ namespace ProjetRESOTEL.ViewModels
         {
             get
             {
-                return _opt.ChambreReservee;
+                return Opt.ChambreReservee;
             }
             set
             {
@@ -78,7 +75,7 @@ namespace ProjetRESOTEL.ViewModels
         {
             get
             {
-                return _opt.IdOption;
+                return Opt.IdOption;
             }
             set
             {
@@ -89,7 +86,7 @@ namespace ProjetRESOTEL.ViewModels
         {
             get
             {
-                return _opt.Option;
+                return Opt.Option;
             }
             set
             {
@@ -100,7 +97,7 @@ namespace ProjetRESOTEL.ViewModels
         {
             get
             {
-                return _opt.NbJour;
+                return Opt.NbJour;
             }
             set
             {
@@ -121,6 +118,7 @@ namespace ProjetRESOTEL.ViewModels
             int nbSupp;
             if (Int32.TryParse(value, out nbSupp))
                 Jour += nbSupp;
+            if (Jour < 0) Jour = 0;
         }
 
         public ICommand RemoveOption
@@ -133,12 +131,25 @@ namespace ProjetRESOTEL.ViewModels
         public EventHandler suppresion;
         private void removeOption()
         {
-            if(_opt != null)
+            if (Opt != null)
             {
-                service.RemoveOption(_opt.IdOption);
+                service.RemoveOption(Opt);
             }
             suppresion?.Invoke(this, EventArgs.Empty);
         }
+        public void Enregistrer()
+        {
+            if (Opt != null && ChambreR != null)
+            {
+                if (service.CheckData(Opt))
+                {
+                    service.UpdateDemandeOption(Opt);
+                }
+                else
+                {
+                    service.AddDemandeOption(Opt);
+                }
+            }
+        }
     }
-
 }

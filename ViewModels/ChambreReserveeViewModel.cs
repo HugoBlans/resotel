@@ -107,7 +107,6 @@ namespace ProjetRESOTEL.ViewModels
             OptionService osrv = Services.OptionService.Instance;
             List<DemandeOption> dOption = osrv.getOptionDemande(cr.Id);
             ListeDemandeOptions = new ObservableCollection<OptionDemandeVueModel>();
-            UpdateListeOptions();
             foreach (DemandeOption optionD in dOption)
             {
                 OptionDemandeVueModel oDvm = new OptionDemandeVueModel(optionD);
@@ -150,10 +149,14 @@ namespace ProjetRESOTEL.ViewModels
             {
                 Srv.UpdateChambreReservee(ChambreReservee);
             }
+            EnregistrerOption();
         }
-        private void UpdateListeOptions()
+        private void EnregistrerOption()
         {
-            OptionService osrv = Services.OptionService.Instance;
+            foreach(OptionDemandeVueModel demandeVueModel in ListeDemandeOptions)
+            {
+                demandeVueModel.Enregistrer();
+            }
         }
 
         #endregion
