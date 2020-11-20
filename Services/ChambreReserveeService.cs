@@ -77,7 +77,7 @@ namespace ProjetRESOTEL.Services
                     Chambre chambre = context.Chambres.Find(crToRemove.Numero);
                     if(chambre != null)
                     {
-                        ICollection<Prix> lstPrix = chambre.LstPrix;
+                        List<Prix> lstPrix = chambre.LstPrix.ToList();
                         if(lstPrix != null)
                         {
                             foreach (Prix prix1 in lstPrix)
