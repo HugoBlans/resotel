@@ -173,8 +173,12 @@
                             Margin="8"
                             HorizontalAlignment="Right"
                             Orientation="Horizontal">
-                            <Label>Prix :</Label>
-                            <TextBlock Text="{Binding CurrentReservation.Prix}" />
+                            <Label FontSize="18" FontWeight="Bold">Prix :</Label>
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                FontSize="18"
+                                FontWeight="Bold"
+                                Text="{Binding CurrentReservation.Prix, StringFormat={}{0}€}" />
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
                             <Button Margin="0,0,8,0" Command="{Binding CurrentReservation.CommandeEnregistrerReservation}">Enregister</Button>

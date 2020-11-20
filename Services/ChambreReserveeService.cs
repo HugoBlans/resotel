@@ -45,11 +45,11 @@ namespace ProjetRESOTEL.Services
                 ChambreReservee crToUpdate = context.ChambreReservees.Find(cr.Id);
                 if (crToUpdate != null)
                 {
-                    //crToUpdate.Nom = cr.Nom;
-                    //crToUpdate.Prenom = cr.Prenom;
-                    //crToUpdate.Telephone = cr.Telephone;
-                    //crToUpdate.Email = cr.Email;
-                    //context.SaveChanges();
+                    crToUpdate.Id = cr.Id;
+                    crToUpdate.IdentifiantRes = cr.IdentifiantRes;
+                    crToUpdate.Numero = cr.Numero;
+                    crToUpdate.NbPersonne = cr.NbPersonne;
+                    context.SaveChanges();
                 }
             }
         }
