@@ -240,7 +240,7 @@ namespace ProjetRESOTEL.ViewModels
             int reste = nbNuits % 10;
             int nbCinq = reste / 5;
             reste = nbNuits % 5;
-            prix += Srv.calculPrix(ChambreReservee.Numero, nbDizaine, nbCinq, reste);
+            prix += Srv.calculPrix(ChambreReservee.Id, nbDizaine, nbCinq, reste);
             return prix;
         }
     }
