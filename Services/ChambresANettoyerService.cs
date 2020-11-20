@@ -45,7 +45,7 @@ namespace ProjetRESOTEL.Services
         {
             using (Entities.AppContext context = new Entities.AppContext())
             {
-                context.Database.ExecuteSqlCommand("UPDATE chambres SET DateDernierMenage = '"+ DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") +"' WHERE chambres.Numero = " + numero);
+                context.Database.ExecuteSqlCommand("UPDATE Chambres SET DateDernierMenage = '"+ DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") +"' WHERE Chambres.Numero = " + numero);
             }
         }
     }

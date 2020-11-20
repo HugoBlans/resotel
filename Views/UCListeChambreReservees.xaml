@@ -32,12 +32,13 @@
         </GroupBox.Header>
         <DataGrid
             Grid.Row="0"
-            Margin="8"
+            Margin="1"
             AutoGenerateColumns="False"
             HorizontalGridLinesBrush="Azure"
             IsSynchronizedWithCurrentItem="True"
             ItemsSource="{Binding ListeChambreReservees}"
-            SelectionMode="Single">
+            SelectionMode="Single"
+            SelectionUnit="FullRow">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding NbPersonne}" Header="Nombre de personnes" />
                 <DataGridTemplateColumn Header="Numero de Chambre">
@@ -68,18 +69,19 @@
             </DataGrid.Columns>
             <DataGrid.RowDetailsTemplate>
                 <DataTemplate>
-                    <GroupBox>
+                    <GroupBox
+                        Width="auto"
+                        Margin="16,0,16,0"
+                        Padding="0">
                         <GroupBox.Header>
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*" />
                                     <ColumnDefinition Width="auto" />
-                                    <ColumnDefinition Width="auto" />
                                 </Grid.ColumnDefinitions>
-                                <TextBlock Grid.Column="0" Text="Options" />
-                                <TextBlock Grid.Column="1" Text="Nombre de jour" />
+                                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">Liste des options</TextBlock>
                                 <Button
-                                    Grid.Column="2"
+                                    Grid.Column="1"
                                     Margin="0"
                                     Padding="0"
                                     Background="Transparent"
@@ -95,23 +97,32 @@
                         </GroupBox.Header>
                         <DataGrid
                             Grid.Row="0"
-                            Margin="8"
+                            Margin="1"
                             AutoGenerateColumns="False"
                             HorizontalGridLinesBrush="Azure"
                             IsSynchronizedWithCurrentItem="True"
                             ItemsSource="{Binding ListeDemandeOptions}">
                             <DataGrid.Columns>
-                                <DataGridTemplateColumn>
+                                <DataGridTemplateColumn Header="Option">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <StackPanel Orientation="Horizontal">
-                                                <ComboBox
-                                                    Name="CBOptions"
-                                                    IsSynchronizedWithCurrentItem="True"
-                                                    ItemsSource="{Binding OptionVueModels}" />
-                                                <TextBlock Text="{Binding Jour}" />
+                                            <ComboBox
+                                                Name="CBOptions"
+                                                IsSynchronizedWithCurrentItem="True"
+                                                ItemsSource="{Binding OptionVueModels}" />
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTemplateColumn Header="Nombre de jours">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                                                <TextBlock
+                                                    VerticalAlignment="Center"
+                                                    FontSize="16"
+                                                    Text="{Binding Jour}" />
                                                 <Button
-                                                    Margin="0"
+                                                    Margin="8,0,0,0"
                                                     Padding="0"
                                                     Background="Transparent"
                                                     BorderBrush="Transparent"
@@ -136,19 +147,25 @@
                                                         Height="24"
                                                         Kind="Add" />
                                                 </Button>
-                                                <Button
-                                                    Margin="0"
-                                                    Padding="0"
-                                                    Background="Transparent"
-                                                    BorderBrush="Transparent"
-                                                    Command="{Binding RemoveOption}"
-                                                    Foreground="DarkRed">
-                                                    <materialDesign:PackIcon
-                                                        Width="24"
-                                                        Height="24"
-                                                        Kind="Trash" />
-                                                </Button>
                                             </StackPanel>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTemplateColumn>
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Button
+                                                Margin="0"
+                                                Padding="0"
+                                                Background="Transparent"
+                                                BorderBrush="Transparent"
+                                                Command="{Binding RemoveOption}"
+                                                Foreground="DarkRed">
+                                                <materialDesign:PackIcon
+                                                    Width="24"
+                                                    Height="24"
+                                                    Kind="Trash" />
+                                            </Button>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
