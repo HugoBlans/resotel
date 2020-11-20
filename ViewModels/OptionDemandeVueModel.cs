@@ -30,7 +30,6 @@ namespace ProjetRESOTEL.ViewModels
         private void CurrentChangedOption(Object sender, EventArgs e)
         {
             OptionVueModel value = observerOption.CurrentItem as OptionVueModel;
-            Opt.Option = value.opt;
             Opt.IdOption = value.opt.NumOption;
         }
 
@@ -60,17 +59,7 @@ namespace ProjetRESOTEL.ViewModels
                 Opt.IdChambreReservee = value;
             }
         }
-        public ChambreReservee ChambreR
-        {
-            get
-            {
-                return Opt.ChambreReservee;
-            }
-            set
-            {
-                Opt.ChambreReservee = value;
-            }
-        }
+
         public int OptionId
         {
             get
@@ -139,7 +128,7 @@ namespace ProjetRESOTEL.ViewModels
         }
         public void Enregistrer()
         {
-            if (Opt != null && ChambreR != null)
+            if (OptionId != 0 && idCHambreR != 0)
             {
                 if (service.CheckData(Opt))
                 {
@@ -149,7 +138,7 @@ namespace ProjetRESOTEL.ViewModels
                 {
                     service.AddDemandeOption(Opt);
                 }
-            }
+            } 
         }
         public double UpdatePrix()
         {

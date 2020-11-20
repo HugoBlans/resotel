@@ -63,9 +63,7 @@ namespace ProjetRESOTEL.Services
             using (Entities.AppContext context = new Entities.AppContext())
             {
                 DemandeOption optionToSave = context.DemandeOptions.Find(opt);
-                optionToSave.Option = opt.Option;
                 optionToSave.IdOption = opt.IdOption;
-                optionToSave.ChambreReservee = opt.ChambreReservee;
                 optionToSave.IdChambreReservee = opt.IdChambreReservee;
                 optionToSave.NbJour = opt.NbJour;
                 context.SaveChanges();
