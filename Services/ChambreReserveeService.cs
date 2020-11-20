@@ -9,7 +9,7 @@ namespace ProjetRESOTEL.Services
 {
     public class ChambreReserveeService
     {
-        public int? AddChambreReservee(ChambreReservee cr)
+        public int AddChambreReservee(ChambreReservee cr)
         {
             using (Entities.AppContext context = new Entities.AppContext())
             {

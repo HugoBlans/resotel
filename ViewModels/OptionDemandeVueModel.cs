@@ -29,7 +29,12 @@ namespace ProjetRESOTEL.ViewModels
         }
         private void CurrentChangedOption(Object sender, EventArgs e)
         {
+            if (observerOption.CurrentItem == null)
+            {
+                observerOption.MoveCurrentToFirst();
+            }
             OptionVueModel value = observerOption.CurrentItem as OptionVueModel;
+
             Opt.IdOption = value.opt.NumOption;
         }
 
@@ -46,6 +51,15 @@ namespace ProjetRESOTEL.ViewModels
                 OptionVueModels.Add(optionVue);
             }
             observerOption = CollectionViewSource.GetDefaultView(OptionVueModels);
+            OptionVueModel current = (from opt in OptionVueModels where opt.opt.NumOption == dOpt.IdOption select opt).SingleOrDefault<OptionVueModel>();
+            if (current == null)
+            {
+                observerOption.MoveCurrentToFirst();
+            } else
+            {
+                observerOption.MoveCurrentTo(current);
+            }
+            
             observerOption.CurrentChanged += CurrentChangedOption;
         }
         public int idCHambreR

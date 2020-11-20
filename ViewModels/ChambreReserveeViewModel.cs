@@ -152,7 +152,11 @@ namespace ProjetRESOTEL.ViewModels
         {
             if (ID == 0)
             {
-                Srv.AddChambreReservee(ChambreReservee);
+                ID = Srv.AddChambreReservee(ChambreReservee);
+                foreach (OptionDemandeVueModel option in ListeDemandeOptions)
+                {
+                    option.idCHambreR = ID;
+                }
             }
             else
             {
@@ -181,8 +185,7 @@ namespace ProjetRESOTEL.ViewModels
         {
             DemandeOption dOpt = new DemandeOption();
             dOpt.NbJour = 0;
-            dOpt.ChambreReservee = ChambreReservee;
-            dOpt.IdChambreReservee = ChambreReservee.Id;
+            dOpt.IdChambreReservee = ID;
             OptionDemandeVueModel optVM = new OptionDemandeVueModel(dOpt);
             optVM.suppresion += SupprimerOption;
             ListeDemandeOptions.Add(optVM);

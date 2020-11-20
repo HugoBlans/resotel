@@ -58,24 +58,24 @@ namespace ProjetRESOTEL.Services
                 context.SaveChanges();
             }
         }
-        public void UpdateDemandeOption(DemandeOption opt)
+        public void UpdateDemandeOption(DemandeOption option)
         {
             using (Entities.AppContext context = new Entities.AppContext())
             {
-                DemandeOption optionToSave = context.DemandeOptions.Find(opt);
-                optionToSave.IdOption = opt.IdOption;
-                optionToSave.IdChambreReservee = opt.IdChambreReservee;
-                optionToSave.NbJour = opt.NbJour;
+                DemandeOption optionToSave = (from opt in context.DemandeOptions where (opt.IdChambreReservee == option.IdChambreReservee) && (opt.IdOption == option.IdOption) select opt).SingleOrDefault<DemandeOption>();
+                optionToSave.IdOption = option.IdOption;
+                optionToSave.IdChambreReservee = option.IdChambreReservee;
+                optionToSave.NbJour = option.NbJour;
                 context.SaveChanges();
             }
         }
-        public void RemoveOption(DemandeOption Id)
+        public void RemoveOption(DemandeOption option)
         {
             using (Entities.AppContext context = new Entities.AppContext())
             {
                 try
                 {
-                    DemandeOption optionToRemove = context.DemandeOptions.Find(Id);
+                    DemandeOption optionToRemove = (from opt in context.DemandeOptions where (opt.IdChambreReservee == option.IdChambreReservee) && (opt.IdOption == option.IdOption) select opt).SingleOrDefault<DemandeOption>();
                     if (optionToRemove != null)
                     {
                         context.DemandeOptions.Remove(optionToRemove);
@@ -92,15 +92,9 @@ namespace ProjetRESOTEL.Services
         {
             using (Entities.AppContext context = new Entities.AppContext())
             {
-                try
-                {
-                    DemandeOption demandeOption = context.DemandeOptions.Find(option);
-                    return true;
-                }
-                catch (Exception e)
-                {
-                    return false;
-                }
+                DemandeOption Dopt = (from opt in context.DemandeOptions where (opt.IdChambreReservee == option.IdChambreReservee) && (opt.IdOption == option.IdOption) select opt).SingleOrDefault<DemandeOption>();
+
+                return Dopt != null;
             }
         }
         public double calculPrix(int idOption, int nbJour)
